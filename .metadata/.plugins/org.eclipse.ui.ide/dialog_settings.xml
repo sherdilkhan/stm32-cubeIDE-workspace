@@ -8,6 +8,11 @@
 		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="G:\My Drive\Business\My Upwork\STM32\stm32-cubeIDE-workspace\stm32f103_vga"/>
+			<item value="G:\My Drive\Business\My Upwork\STM32\stm32-cubeIDE-workspace\stm32f103_gpio"/>
+			<item value="G:\My Drive\Business\My Upwork\STM32\stm32-cubeIDE-workspace"/>
+		</list>
 	</section>
 	<section name="ChooseWorkspaceDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="595"/>

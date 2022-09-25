@@ -60,8 +60,8 @@ all: main-build
 main-build: stm32f103_pwm.elf secondary-outputs
 
 # Tool invocations
-stm32f103_pwm.elf stm32f103_pwm.map: $(OBJS) $(USER_OBJS) C:\Users\sherd\STM32CubeIDE\workspace_1.9.0\stm32f103_pwm\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "stm32f103_pwm.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\sherd\STM32CubeIDE\workspace_1.9.0\stm32f103_pwm\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f103_pwm.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+stm32f103_pwm.elf stm32f103_pwm.map: $(OBJS) $(USER_OBJS) G:\My\ Drive\Business\My\ Upwork\STM32\stm32-cubeIDE-workspace\stm32f103_pwm\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "stm32f103_pwm.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"G:\My Drive\Business\My Upwork\STM32\stm32-cubeIDE-workspace\stm32f103_pwm\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f103_pwm.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
