@@ -1875,3 +1875,25 @@ java.lang.NullPointerException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+!SESSION 2022-09-25 21:14:32.955 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data G:/My Drive/Business/My Upwork/STM32/stm32_cubeIDE_workspace
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-09-25 21:14:43.286
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-09-25 21:14:43.393
+!MESSAGE Log4j initialized with config file G:\My Drive\Business\My Upwork\STM32\stm32_cubeIDE_workspace\.metadata\.log4j.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-09-25 21:14:49.612
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sherd'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-09-25 21:15:05.924
+!MESSAGE Started RMI Server, listening on port 41337
