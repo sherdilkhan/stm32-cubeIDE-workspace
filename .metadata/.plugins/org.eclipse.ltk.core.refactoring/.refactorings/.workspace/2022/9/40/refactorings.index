@@ -3,3 +3,4 @@
 1664119500370	Rename resource 'stm32f103_gpio_test'
 1664119508590	Rename resource 'stm32f103_vga_test'
 1664131930388	Delete resource 'led'
+1664133500328	Delete resource 'led'
