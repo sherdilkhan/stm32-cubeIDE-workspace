@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATION_PROPERTIES_DIALOG_SECTION">
+		<item key="DIALOG_WIDTH" value="834"/>
+		<item key="DIALOG_HEIGHT" value="1030"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.6|0|WINDOWS|1|-32|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATIONS_DIALOG_SECTION">
+		<item key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_1" value="304"/>
+		<item key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_2" value="695"/>
+		<item key="org.eclipse.debug.ui.EXPANDED_NODES" value=", com.st.stm32cube.ide.mcu.debug.launch.launchConfigurationType, "/>
+		<item key="DIALOG_WIDTH" value="1936"/>
+		<item key="DIALOG_HEIGHT" value="1046"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.6|0|WINDOWS|1|-32|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.debug.ui.SCOPED_SAVE_SELECTION_DIALOG">
+		<item key="DIALOG_WIDTH" value="375"/>
+		<item key="DIALOG_HEIGHT" value="446"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.6|0|WINDOWS|1|-32|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="FAVORITES_DIALOG_SECTION">
+		<item key="DIALOG_X_ORIGIN" value="743"/>
+		<item key="DIALOG_Y_ORIGIN" value="190"/>
+		<item key="DIALOG_WIDTH" value="450"/>
+		<item key="DIALOG_HEIGHT" value="500"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-30|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.debug.ui.SELECT_FAVORITESS_DIALOG">
+		<item key="DIALOG_WIDTH" value="338"/>
+		<item key="DIALOG_HEIGHT" value="395"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-30|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

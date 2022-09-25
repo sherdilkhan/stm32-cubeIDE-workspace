@@ -1,0 +1,10 @@
+00:41:05 **** Incremental Build of configuration Debug for project stm32f411_rtos1_bme280 ****
+make -j8 all 
+arm-none-eabi-size   stm32f411_rtos1_bme280.elf 
+   text	   data	    bss	    dec	    hex	filename
+  45152	    488	  20856	  66496	  103c0	stm32f411_rtos1_bme280.elf
+Finished building: default.size.stdout
+ 
+
+00:41:06 Build Finished. 0 errors, 0 warnings. (took 448ms)
+

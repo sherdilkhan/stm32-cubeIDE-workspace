@@ -1,0 +1,10 @@
+23:43:32 **** Build of configuration Debug for project stm32_vga_test_1 ****
+make -j8 all 
+arm-none-eabi-size   stm32_vga_test_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5288	     20	   1572	   6880	   1ae0	stm32_vga_test_1.elf
+Finished building: default.size.stdout
+ 
+
+23:43:33 Build Finished. 0 errors, 0 warnings. (took 298ms)
+

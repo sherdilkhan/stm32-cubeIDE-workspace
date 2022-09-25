@@ -1,0 +1,12 @@
+AbstractTextEditor.Color.Background=28,31,34
+AbstractTextEditor.Color.Background.SystemDefault=false
+AbstractTextEditor.Color.SelectionBackground=34,128,189
+AbstractTextEditor.Color.SelectionBackground.SystemDefault=false
+AbstractTextEditor.Color.SelectionForeground=222,226,228
+AbstractTextEditor.Color.SelectionForeground.SystemDefault=false
+eclipse.preferences.version=1
+findIndication=false
+findIndicationColor=105,105,105
+org.eclipse.cdt.ui.occurrenceIndicationColor=0,94,187
+org.eclipse.cdt.ui.overrideIndicatorColor=0,94,187
+org.eclipse.cdt.ui.writeOccurrenceIndicationColor=0,94,187

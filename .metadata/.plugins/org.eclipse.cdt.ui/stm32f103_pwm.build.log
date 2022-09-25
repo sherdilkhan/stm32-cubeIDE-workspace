@@ -1,0 +1,10 @@
+23:43:33 **** Build of configuration Debug for project stm32f103_pwm ****
+make -j8 all 
+arm-none-eabi-size   stm32f103_pwm.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9012	     20	   1724	  10756	   2a04	stm32f103_pwm.elf
+Finished building: default.size.stdout
+ 
+
+23:43:33 Build Finished. 0 errors, 0 warnings. (took 375ms)
+

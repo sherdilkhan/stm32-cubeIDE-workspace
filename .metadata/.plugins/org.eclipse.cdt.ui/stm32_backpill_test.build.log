@@ -1,0 +1,10 @@
+23:43:31 **** Build of configuration Debug for project stm32_backpill_test ****
+make -j8 all 
+arm-none-eabi-size   stm32_backpill_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5676	     20	   1572	   7268	   1c64	stm32_backpill_test.elf
+Finished building: default.size.stdout
+ 
+
+23:43:32 Build Finished. 0 errors, 0 warnings. (took 437ms)
+

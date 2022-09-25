@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.Preferences"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="PreferencesImportWizard">
+		<item key="" value="C:\Users\sherd\Downloads\C-Programming-41fce0042a7720dd2ddd189347d2f670344b80d9\Eclipse\darkVsEclipse.epf"/>
+		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\sherd\Downloads\C-Programming-41fce0042a7720dd2ddd189347d2f670344b80d9\Eclipse\darkVsEclipse.epf"/>
+		</list>
+	</section>
+</section>

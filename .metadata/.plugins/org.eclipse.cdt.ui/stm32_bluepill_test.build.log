@@ -1,0 +1,10 @@
+23:43:32 **** Build of configuration Debug for project stm32_bluepill_test ****
+make -j8 all 
+arm-none-eabi-size   stm32_bluepill_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4540	     20	   1572	   6132	   17f4	stm32_bluepill_test.elf
+Finished building: default.size.stdout
+ 
+
+23:43:32 Build Finished. 0 errors, 0 warnings. (took 313ms)
+
