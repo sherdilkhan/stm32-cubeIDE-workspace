@@ -105,7 +105,6 @@ int main(void)
 
 	  snprintf(buffer, 128, "%d \r\n", 123);
 	  HAL_UART_Transmit(&huart2, (uint8_t *)buffer, strlen(buffer), 1000);
-
   }
   /* USER CODE END 3 */
 }
