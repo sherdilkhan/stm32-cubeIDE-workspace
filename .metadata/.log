@@ -4934,3 +4934,6 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.cdt.core 1 0 2022-10-16 01:07:02.841
 !MESSAGE Indexed 'stm32f411_rtos2' (19 sources, 81 headers) in 3.76 sec: 4,259 declarations; 17,942 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.009%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-10-16 01:09:44.973
+!MESSAGE Indexed 'stm32f411_rtos3' (19 sources, 81 headers) in 2.16 sec: 4,259 declarations; 17,942 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.009%)
