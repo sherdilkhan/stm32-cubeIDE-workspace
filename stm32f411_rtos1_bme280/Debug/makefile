@@ -64,8 +64,8 @@ all: main-build
 main-build: stm32f411_rtos1_bme280.elf secondary-outputs
 
 # Tool invocations
-stm32f411_rtos1_bme280.elf stm32f411_rtos1_bme280.map: $(OBJS) $(USER_OBJS) G:\My\ Drive\Business\My\ Upwork\STM32\stm32-cubeIDE-workspace\stm32f411_rtos1_bme280\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "stm32f411_rtos1_bme280.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"G:\My Drive\Business\My Upwork\STM32\stm32-cubeIDE-workspace\stm32f411_rtos1_bme280\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f411_rtos1_bme280.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+stm32f411_rtos1_bme280.elf stm32f411_rtos1_bme280.map: $(OBJS) $(USER_OBJS) C:\Users\sherd\STM32CubeIDE\workspace_1.10.1\stm32f411_rtos1_bme280\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "stm32f411_rtos1_bme280.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\sherd\STM32CubeIDE\workspace_1.10.1\stm32f411_rtos1_bme280\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f411_rtos1_bme280.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

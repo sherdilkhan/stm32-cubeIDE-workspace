@@ -75,7 +75,11 @@ void TrimRead(void)
 	dig_H6 = (trimdata[31]);
 }
 
+//test
+
 /* Configuration for the BME280
+
+
 
  * @osrs is the oversampling to improve the accuracy
  *       if osrs is set to OSRS_OFF, the respective measurement will be skipped
