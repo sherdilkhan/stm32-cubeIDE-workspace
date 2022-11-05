@@ -1,7 +1,28 @@
-00:14:23 **** Incremental Build of configuration Debug for project led ****
+22:22:58 **** Incremental Build of configuration Debug for project stm32f411_adc_serial_write ****
 make -j8 all 
-arm-none-eabi-size   led.elf 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "stm32f411_adc_serial_write.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\sherd\Documents\GitHub\stm32-cubeIDE-workspace\stm32f411_adc_serial_write\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f411_adc_serial_write.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32f411_adc_serial_write.elf
+ 
+arm-none-eabi-size   stm32f411_adc_serial_write.elf 
+arm-none-eabi-objdump -h -S  stm32f411_adc_serial_write.elf  > "stm32f411_adc_serial_write.list"
    text	   data	    bss	    dec	    hex	filename
-   4688	     20	   1572	   6280	   1888	led.elf
+  17536	    120	   1920	  19576	   4c78	stm32f411_adc_serial_write.elf
+Finished building: default.size.stdout
+ 
+Finished building: stm32f411_adc_serial_write.list
+ 
+22:23:04 **** Incremental Build of configuration Debug for project stm32f411_adc_serial_write ****
+make -j8 all 
+arm-none-eabi-size   stm32f411_adc_serial_write.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17536	    120	   1920	  19576	   4c78	stm32f411_adc_serial_write.elf
+Finished building: default.size.stdout
+ 
+22:23:39 **** Incremental Build of configuration Debug for project stm32f411_adc_serial_write ****
+make -j8 all 
+arm-none-eabi-size   stm32f411_adc_serial_write.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17536	    120	   1920	  19576	   4c78	stm32f411_adc_serial_write.elf
 Finished building: default.size.stdout
  
