@@ -2,7 +2,7 @@ LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
 activeLaunchTarget=null\:---
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_UART Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_adc_multiMode_DMA Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_adc_singleMode_multiChannel Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_rtos1 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_rtos1_bme280 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_adc_serial_write Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_pwm_test,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_rtos_test Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Debugger_1/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32_Test_1/activeLaunchMode=debug
@@ -19,6 +19,8 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_adc_serial_write\ Deb
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_rtos1\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_rtos1\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_rtos1_bme280\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_rtos_pwm_test/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:stm32f411_rtos_pwm_test/activeLaunchTarget=null\:---
 org.eclipse.launchbar.core.descriptorType.default\:stm32_backpill_test\ Debug/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:stm32_backpill_test\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:stm32f411_rtos1\ Debug/activeLaunchMode=run
