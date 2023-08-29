@@ -32,7 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+// Define the size of the message queue
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -65,6 +65,7 @@ const osThreadAttr_t led01_attributes = {
   .priority = (osPriority_t) osPriorityLow,
 };
 /* USER CODE BEGIN PV */
+// Structure to hold motor speed data
 
 /* USER CODE END PV */
 
@@ -325,9 +326,11 @@ void startPwm01(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	TIM2 ->CCR1 = 500;
-	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-    osDelay(1);
+      // Use data.motor1Speed to control motor 1
+      // Implement your motor control logic here
+	  TIM2 ->CCR1 = 500;
+	  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+	  osDelay(30);
   }
   /* USER CODE END 5 */
 }
@@ -347,7 +350,7 @@ void startPwm02(void *argument)
   {
 	TIM2 ->CCR2 = 500;
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-    osDelay(1);
+    osDelay(30);
   }
   /* USER CODE END startPwm02 */
 }
