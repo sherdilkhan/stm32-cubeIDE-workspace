@@ -36,4 +36,38 @@
 	<section name="CResourceRenameRefactoringInputPage">
 		<item key="updateReferences" value="true"/>
 	</section>
+	<section name="org.eclipse.cdt.internal.ui.typehierarchy.OpenTypeInHierarchyActionSettings">
+		<item key="show_namespaces" value="false"/>
+		<item key="show_classes" value="true"/>
+		<item key="show_structs" value="true"/>
+		<item key="show_typedefs" value="true"/>
+		<item key="show_enums" value="true"/>
+		<item key="show_unions" value="true"/>
+		<item key="show_functions" value="false"/>
+		<item key="show_variables" value="false"/>
+		<item key="show_enumerators" value="false"/>
+		<item key="show_macros" value="false"/>
+		<item key="show_lowlevel" value="true"/>
+		<item key="x" value="699"/>
+		<item key="y" value="0"/>
+		<item key="width" value="522"/>
+		<item key="height" value="960"/>
+	</section>
+	<section name="org.eclipse.cdt.internal.ui.callhierarchy.OpenElementInCallHierarchyActionSettings">
+		<item key="show_namespaces" value="false"/>
+		<item key="show_classes" value="false"/>
+		<item key="show_structs" value="false"/>
+		<item key="show_typedefs" value="false"/>
+		<item key="show_enums" value="false"/>
+		<item key="show_unions" value="false"/>
+		<item key="show_functions" value="true"/>
+		<item key="show_variables" value="true"/>
+		<item key="show_enumerators" value="true"/>
+		<item key="show_macros" value="false"/>
+		<item key="show_lowlevel" value="true"/>
+		<item key="x" value="1098"/>
+		<item key="y" value="71"/>
+		<item key="width" value="631"/>
+		<item key="height" value="935"/>
+	</section>
 </section>
