@@ -68,3 +68,4 @@ RCC.PLLCLKFreq_Value=8000000
 RCC.PLLMCOFreq_Value=4000000
 RCC.TimSysFreq_Value=8000000
 board=custom
+isbadioc=false
