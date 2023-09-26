@@ -1,21 +1,35 @@
-00:54:11 **** Incremental Build of configuration Debug for project stm32f103_rtos_multitasks ****
+22:39:45 **** Incremental Build of configuration Debug for project stm32f103_uart ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "stm32f103_rtos_multitasks.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\sherd\Documents\GitHub\stm32-cubeIDE-workspace\stm32f103_rtos_multitasks\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f103_rtos_multitasks.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32f103_rtos_multitasks.elf
- 
-arm-none-eabi-size   stm32f103_rtos_multitasks.elf 
-arm-none-eabi-objdump -h -S  stm32f103_rtos_multitasks.elf  > "stm32f103_rtos_multitasks.list"
+arm-none-eabi-size   stm32f103_uart.elf 
    text	   data	    bss	    dec	    hex	filename
-  20408	    104	   8736	  29248	   7240	stm32f103_rtos_multitasks.elf
+   9240	    116	   1964	  11320	   2c38	stm32f103_uart.elf
 Finished building: default.size.stdout
  
-Finished building: stm32f103_rtos_multitasks.list
- 
-00:54:12 **** Incremental Build of configuration Debug for project stm32f103_rtos_multitasks ****
+22:39:51 **** Incremental Build of configuration Debug for project stm32f103_uart ****
 make -j8 all 
-arm-none-eabi-size   stm32f103_rtos_multitasks.elf 
+arm-none-eabi-size   stm32f103_uart.elf 
    text	   data	    bss	    dec	    hex	filename
-  20408	    104	   8736	  29248	   7240	stm32f103_rtos_multitasks.elf
+   9240	    116	   1964	  11320	   2c38	stm32f103_uart.elf
+Finished building: default.size.stdout
+ 
+22:42:54 **** Incremental Build of configuration Debug for project stm32f103_uart ****
+make -j8 all 
+arm-none-eabi-size   stm32f103_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9240	    116	   1964	  11320	   2c38	stm32f103_uart.elf
+Finished building: default.size.stdout
+ 
+22:43:24 **** Incremental Build of configuration Debug for project stm32f103_uart ****
+make -j8 all 
+arm-none-eabi-size   stm32f103_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9240	    116	   1964	  11320	   2c38	stm32f103_uart.elf
+Finished building: default.size.stdout
+ 
+22:44:38 **** Incremental Build of configuration Debug for project stm32f103_uart ****
+make -j8 all 
+arm-none-eabi-size   stm32f103_uart.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9240	    116	   1964	  11320	   2c38	stm32f103_uart.elf
 Finished building: default.size.stdout
  

@@ -57,7 +57,7 @@ osThreadId_t motor02Handle;
 const osThreadAttr_t motor02_attributes = {
   .name = "motor02",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
 
@@ -111,6 +111,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  // Create the semaphore
 
   /* USER CODE END 2 */
 
@@ -331,11 +332,13 @@ void StartMotor01(void *argument)
   /* Infinite loop */
   for(;;)
   {
+
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, GPIO_PIN_RESET);
-	TIM2 ->CCR1 = 700;
+	// Update the PWM value in the CCR register
+	TIM2->CCR1 = 400;
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-    osDelay(30);
+    osDelay(1);
   }
   /* USER CODE END 5 */
 }
@@ -355,9 +358,9 @@ void StartMotor02(void *argument)
   {
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, GPIO_PIN_RESET);
-	TIM2 ->CCR2 = 300;
+	TIM2 ->CCR2 = 700;
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-    osDelay(30);
+    osDelay(1);
   }
   /* USER CODE END StartMotor02 */
 }
