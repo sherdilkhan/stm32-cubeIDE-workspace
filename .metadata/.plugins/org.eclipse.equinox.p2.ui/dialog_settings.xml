@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.equinox.internal.p2.ui.dialogs.UpdateWizard.WizardSettings">
-		<item key="DIALOG_X_ORIGIN" value="496"/>
-		<item key="DIALOG_Y_ORIGIN" value="89"/>
-		<item key="DIALOG_WIDTH" value="883"/>
-		<item key="DIALOG_HEIGHT" value="652"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-30|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="DIALOG_X_ORIGIN" value="490"/>
+		<item key="DIALOG_Y_ORIGIN" value="118"/>
+		<item key="DIALOG_WIDTH" value="878"/>
+		<item key="DIALOG_HEIGHT" value="602"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-27|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 	<section name="org.eclipse.equinox.internal.p2.ui.dialogs.InstallWizard.WizardSettings">
 		<item key="DIALOG_X_ORIGIN" value="355"/>
 		<item key="DIALOG_Y_ORIGIN" value="8"/>
-		<item key="DIALOG_WIDTH" value="1227"/>
-		<item key="DIALOG_HEIGHT" value="950"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.6|0|WINDOWS|1|-32|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="DIALOG_WIDTH" value="1207"/>
+		<item key="DIALOG_HEIGHT" value="814"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-27|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 	<section name="AvailableIUsPage">
 		<item key="AvailableViewType" value="1"/>

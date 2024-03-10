@@ -1,35 +1,17 @@
-22:39:45 **** Incremental Build of configuration Debug for project stm32f103_uart ****
+00:04:16 **** Build of configuration Debug for project t_stm32f103_HelloWorld ****
 make -j8 all 
-arm-none-eabi-size   stm32f103_uart.elf 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "t_stm32f103_HelloWorld.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\sherd\Documents\GitHub\stm32-cubeIDE-workspace\t_stm32f103_HelloWorld\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="t_stm32f103_HelloWorld.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: t_stm32f103_HelloWorld.elf
+ 
+arm-none-eabi-size  t_stm32f103_HelloWorld.elf 
+arm-none-eabi-objdump -h -S t_stm32f103_HelloWorld.elf  > "t_stm32f103_HelloWorld.list"
    text	   data	    bss	    dec	    hex	filename
-   9240	    116	   1964	  11320	   2c38	stm32f103_uart.elf
+   3276	    100	   1900	   5276	   149c	t_stm32f103_HelloWorld.elf
 Finished building: default.size.stdout
  
-22:39:51 **** Incremental Build of configuration Debug for project stm32f103_uart ****
-make -j8 all 
-arm-none-eabi-size   stm32f103_uart.elf 
-   text	   data	    bss	    dec	    hex	filename
-   9240	    116	   1964	  11320	   2c38	stm32f103_uart.elf
-Finished building: default.size.stdout
- 
-22:42:54 **** Incremental Build of configuration Debug for project stm32f103_uart ****
-make -j8 all 
-arm-none-eabi-size   stm32f103_uart.elf 
-   text	   data	    bss	    dec	    hex	filename
-   9240	    116	   1964	  11320	   2c38	stm32f103_uart.elf
-Finished building: default.size.stdout
- 
-22:43:24 **** Incremental Build of configuration Debug for project stm32f103_uart ****
-make -j8 all 
-arm-none-eabi-size   stm32f103_uart.elf 
-   text	   data	    bss	    dec	    hex	filename
-   9240	    116	   1964	  11320	   2c38	stm32f103_uart.elf
-Finished building: default.size.stdout
- 
-22:44:38 **** Incremental Build of configuration Debug for project stm32f103_uart ****
-make -j8 all 
-arm-none-eabi-size   stm32f103_uart.elf 
-   text	   data	    bss	    dec	    hex	filename
-   9240	    116	   1964	  11320	   2c38	stm32f103_uart.elf
-Finished building: default.size.stdout
+Finished building: t_stm32f103_HelloWorld.list
  
