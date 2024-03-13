@@ -1,17 +1,27 @@
-00:04:16 **** Build of configuration Debug for project t_stm32f103_HelloWorld ****
+23:21:57 **** Build of configuration Debug for project 004_f407_PeriClockEnable ****
 make -j8 all 
-arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc -o "t_stm32f103_HelloWorld.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\sherd\Documents\GitHub\stm32-cubeIDE-workspace\t_stm32f103_HelloWorld\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="t_stm32f103_HelloWorld.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: t_stm32f103_HelloWorld.elf
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f407vgtx.d" -MT"Startup/startup_stm32f407vgtx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+../Src/main.c:22:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
+   22 |   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+      |    ^~~~~~~
+arm-none-eabi-gcc -o "004_f407_PeriClockEnable.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\sherd\Documents\GitHub\stm32-cubeIDE-workspace\004_f407_PeriClockEnable\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004_f407_PeriClockEnable.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 004_f407_PeriClockEnable.elf
  
-arm-none-eabi-size  t_stm32f103_HelloWorld.elf 
-arm-none-eabi-objdump -h -S t_stm32f103_HelloWorld.elf  > "t_stm32f103_HelloWorld.list"
+arm-none-eabi-size  004_f407_PeriClockEnable.elf 
+arm-none-eabi-objdump -h -S 004_f407_PeriClockEnable.elf  > "004_f407_PeriClockEnable.list"
    text	   data	    bss	    dec	    hex	filename
-   3276	    100	   1900	   5276	   149c	t_stm32f103_HelloWorld.elf
+    664	      8	   1568	   2240	    8c0	004_f407_PeriClockEnable.elf
 Finished building: default.size.stdout
  
-Finished building: t_stm32f103_HelloWorld.list
+Finished building: 004_f407_PeriClockEnable.list
+ 
+23:22:15 **** Incremental Build of configuration Debug for project 004_f407_PeriClockEnable ****
+make -j8 all 
+arm-none-eabi-size  004_f407_PeriClockEnable.elf 
+   text	   data	    bss	    dec	    hex	filename
+    664	      8	   1568	   2240	    8c0	004_f407_PeriClockEnable.elf
+Finished building: default.size.stdout
  
