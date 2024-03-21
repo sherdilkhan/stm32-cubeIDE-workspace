@@ -1,21 +1,14 @@
-00:52:14 **** Incremental Build of configuration Debug for project 005_f407_HSIMeasurement ****
+22:45:31 **** Incremental Build of configuration Debug for project t_stm32f4xx_Drivers ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "005_f407_HSIMeasurement.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\sherd\Documents\GitHub\stm32-cubeIDE-workspace\005_f407_HSIMeasurement\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="005_f407_HSIMeasurement.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 005_f407_HSIMeasurement.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I"C:/Users/sherd/Documents/GitHub/stm32-cubeIDE-workspace/t_stm32f4xx_Drivers/drivers/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "t_stm32f4xx_Drivers.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\sherd\Documents\GitHub\stm32-cubeIDE-workspace\t_stm32f4xx_Drivers\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="t_stm32f4xx_Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: t_stm32f4xx_Drivers.elf
  
-arm-none-eabi-size  005_f407_HSIMeasurement.elf 
-arm-none-eabi-objdump -h -S 005_f407_HSIMeasurement.elf  > "005_f407_HSIMeasurement.list"
+arm-none-eabi-size  t_stm32f4xx_Drivers.elf 
+arm-none-eabi-objdump -h -S t_stm32f4xx_Drivers.elf  > "t_stm32f4xx_Drivers.list"
    text	   data	    bss	    dec	    hex	filename
-    760	      8	   1568	   2336	    920	005_f407_HSIMeasurement.elf
+    644	      8	   1568	   2220	    8ac	t_stm32f4xx_Drivers.elf
 Finished building: default.size.stdout
  
-Finished building: 005_f407_HSIMeasurement.list
- 
-00:52:16 **** Incremental Build of configuration Debug for project 005_f407_HSIMeasurement ****
-make -j8 all 
-arm-none-eabi-size  005_f407_HSIMeasurement.elf 
-   text	   data	    bss	    dec	    hex	filename
-    760	      8	   1568	   2336	    920	005_f407_HSIMeasurement.elf
-Finished building: default.size.stdout
+Finished building: t_stm32f4xx_Drivers.list
  
