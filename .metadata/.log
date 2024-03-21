@@ -737,3 +737,81 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-21 22:47:08.467
 !MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:22.103
+!MESSAGE Indexed 'stm32f103_timers' (19 sources, 107 headers) in 4.88 sec: 8,711 declarations; 43,914 references; 2 unresolved inclusions; 36 syntax errors; 188 unresolved names (0.36%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:25.742
+!MESSAGE Indexed 'stm32f411_adc_serial_write' (25 sources, 115 headers) in 3.14 sec: 11,337 declarations; 62,644 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.2%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:28.709
+!MESSAGE Indexed 'stm32f103_rtos_multitasks' (32 sources, 136 headers) in 2.92 sec: 12,724 declarations; 63,109 references; 2 unresolved inclusions; 37 syntax errors; 188 unresolved names (0.25%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:29.063
+!MESSAGE Indexed 't_stm32f4xx_Drivers' (4 sources, 55 headers) in 0.345 sec: 1,999 declarations; 2,882 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.041%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:31.590
+!MESSAGE Indexed 'stm32f411_pwm_test' (21 sources, 109 headers) in 2.49 sec: 9,804 declarations; 50,898 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.24%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:36.223
+!MESSAGE Indexed '005_f407_HSIMeasurement' (3 sources, 53 headers) in 0.383 sec: 1,954 declarations; 2,851 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:39.061
+!MESSAGE Indexed 'stm32f411_adc_serial_out' (25 sources, 114 headers) in 2.83 sec: 11,129 declarations; 62,454 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.2%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:40.197
+!MESSAGE Indexed 'stm32_Test_1' (19 sources, 97 headers) in 1.14 sec: 6,746 declarations; 20,314 references; 2 unresolved inclusions; 36 syntax errors; 188 unresolved names (0.69%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:40.411
+!MESSAGE Indexed '002_f407_SampleDebug' (3 sources, 58 headers) in 0.208 sec: 2,323 declarations; 3,197 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.036%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:40.610
+!MESSAGE Indexed '004_f407_PeriClockEnable' (3 sources, 53 headers) in 0.193 sec: 1,951 declarations; 2,838 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:42.655
+!MESSAGE Indexed 'stm32f411_rtos_test' (33 sources, 138 headers) in 2.01 sec: 12,852 declarations; 61,550 references; 2 unresolved inclusions; 152 syntax errors; 148 unresolved names (0.2%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:43.938
+!MESSAGE Indexed 'stm32_vga_test_1' (20 sources, 98 headers) in 1.28 sec: 6,761 declarations; 20,850 references; 2 unresolved inclusions; 36 syntax errors; 188 unresolved names (0.68%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:45.424
+!MESSAGE Indexed 'stm32f411_UART' (20 sources, 111 headers) in 1.47 sec: 9,089 declarations; 37,963 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.31%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:47.335
+!MESSAGE Indexed 'stm32f411_uart_poll' (33 sources, 125 headers) in 1.88 sec: 11,281 declarations; 48,285 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.25%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:47.543
+!MESSAGE Indexed 't_stm32f103_HelloWorld' (3 sources, 55 headers) in 0.203 sec: 2,096 declarations; 2,978 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.039%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:49.606
+!MESSAGE Indexed '003_f407_clock' (21 sources, 117 headers) in 2.06 sec: 10,868 declarations; 37,034 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.5%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:51.344
+!MESSAGE Indexed 'stm32f411_adc_multiMode_DMA' (25 sources, 117 headers) in 1.74 sec: 11,337 declarations; 62,644 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.2%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:52.964
+!MESSAGE Indexed 'stm32f411_adc_singleMode_multiChannel' (23 sources, 114 headers) in 1.62 sec: 9,621 declarations; 43,206 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.28%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:54.429
+!MESSAGE Indexed 'stm32f103_uart' (20 sources, 112 headers) in 1.46 sec: 8,543 declarations; 31,787 references; 2 unresolved inclusions; 36 syntax errors; 188 unresolved names (0.46%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:56.338
+!MESSAGE Indexed 'stm32f411_rtos_pwm_motors' (33 sources, 139 headers) in 1.88 sec: 13,358 declarations; 64,775 references; 2 unresolved inclusions; 152 syntax errors; 148 unresolved names (0.19%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:57.652
+!MESSAGE Indexed 'stm32f411_rtos3' (19 sources, 106 headers) in 1.31 sec: 8,077 declarations; 31,224 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.37%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:15:59.057
+!MESSAGE Indexed 'stm32f411_rtos2' (19 sources, 106 headers) in 1.4 sec: 8,077 declarations; 31,224 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.37%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:16:00.565
+!MESSAGE Indexed 'stm32f103_pwm' (20 sources, 109 headers) in 1.51 sec: 9,681 declarations; 56,085 references; 2 unresolved inclusions; 36 syntax errors; 188 unresolved names (0.29%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:16:00.770
+!MESSAGE Indexed 't_stm32f411_HelloWorld' (3 sources, 53 headers) in 0.2 sec: 1,950 declarations; 2,832 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:16:00.986
+!MESSAGE Indexed '001_f407_SWO' (3 sources, 55 headers) in 0.215 sec: 2,096 declarations; 2,978 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.039%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-21 23:16:03.136
+!MESSAGE Indexed 'stm32f411_rtos1_bme280' (37 sources, 147 headers) in 2.12 sec: 14,924 declarations; 81,195 references; 2 unresolved inclusions; 152 syntax errors; 148 unresolved names (0.15%)
