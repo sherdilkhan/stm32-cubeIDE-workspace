@@ -13,7 +13,7 @@ This project is an STM32-based data logger that reads temperature, humidity, and
 ## Setup
 1. Clone this repository to your local machine.
     ```bash
-    git clone https://github.com/yourusername/stm32-project](https://github.com/sherdilkhan/stm32-cubeIDE-workspace/tree/main/Tutorials/stm32f407_BME280_UART.git
+    git clone 
     ```
 2. Open the project in STM32CubeIDE.
 3. Configure your STM32 board and connect the BME280 sensor to the appropriate pins.
