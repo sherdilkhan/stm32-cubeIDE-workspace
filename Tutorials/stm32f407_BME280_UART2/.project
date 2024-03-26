@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>stm32f407_bme280_uart</name>
+	<name>stm32f407_BME280_UART2</name>
 	<comment></comment>
 	<projects>
 	</projects>
