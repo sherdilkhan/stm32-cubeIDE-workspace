@@ -97,6 +97,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start(&htim1);
   DS18B20_Init(DS18B20_Resolution_12bits);
   /* USER CODE END 2 */
 
@@ -108,23 +109,20 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  DS18B20_ReadAll();
-
-	        DS18B20_StartAll();
-
-	  		uint8_t ROM_tmp[8];
-	  		uint8_t i;
-
-	  	for(i = 0; i < DS18B20_Quantity(); i++)
+	  DS18B20_StartAll();
+	  uint8_t ROM_tmp[8];
+	  uint8_t i;
+	  for(i = 0; i < DS18B20_Quantity(); i++)
+	  	{
+	  		if(DS18B20_GetTemperature(i, &temperature))
 	  		{
-	  			if(DS18B20_GetTemperature(i, &temperature))
-	  			{
-	  				DS18B20_GetROM(i, ROM_tmp);
-	  				memset(string, 0, sizeof(string));
-	  				sprintf(string, "%.2f C", temperature);
-	  				//HAL_UART_Transmit(&huart2, temperature, sizeof (temperature), 10);
-	  			}
-		  		}
-		  		HAL_Delay(1000);
+	  			DS18B20_GetROM(i, ROM_tmp);
+	  			memset(string, 0, sizeof(string));
+	  			sprintf(string, "%.2f C\r\n", temperature);
+	  			HAL_UART_Transmit(&huart2, (uint8_t *)string, strlen(string), 10);
+	  		}
+	  	}
+  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
@@ -279,8 +277,11 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(OTG_FS_PowerSwitchOn_GPIO_Port, OTG_FS_PowerSwitchOn_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOD, ONEWIRE_Pin|LD4_Pin|LD3_Pin|LD5_Pin
-                          |LD6_Pin|Audio_RST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(DS18B20_Pin_GPIO_Port, DS18B20_Pin_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOD, LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
+                          |Audio_RST_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : CS_I2C_SPI_Pin */
   GPIO_InitStruct.Pin = CS_I2C_SPI_Pin;
@@ -309,6 +310,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : DS18B20_Pin_Pin */
+  GPIO_InitStruct.Pin = DS18B20_Pin_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(DS18B20_Pin_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : I2S3_WS_Pin */
   GPIO_InitStruct.Pin = I2S3_WS_Pin;
@@ -340,10 +348,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
   HAL_GPIO_Init(CLK_IN_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : ONEWIRE_Pin LD4_Pin LD3_Pin LD5_Pin
-                           LD6_Pin Audio_RST_Pin */
-  GPIO_InitStruct.Pin = ONEWIRE_Pin|LD4_Pin|LD3_Pin|LD5_Pin
-                          |LD6_Pin|Audio_RST_Pin;
+  /*Configure GPIO pins : LD4_Pin LD3_Pin LD5_Pin LD6_Pin
+                           Audio_RST_Pin */
+  GPIO_InitStruct.Pin = LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
+                          |Audio_RST_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

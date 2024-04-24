@@ -63,32 +63,29 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  //MX_I2C1_Init();
-  ssd1306_Init(&hi2c1);
-
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   if (HAL_I2C_IsDeviceReady(&hi2c1, SSD1306_I2C_ADDR , 2, 50) == HAL_OK)
   {
 	  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, 1);
-	  HAL_Delay(2000);
   }
 
   if (ssd1306_Init(&hi2c1) != 0) {
       Error_Handler();
     }
-    HAL_Delay(1000);
+    //HAL_Delay(1000);
 
     ssd1306_Fill(Black);
     ssd1306_UpdateScreen(&hi2c1);
 
-    HAL_Delay(1000);
+    //HAL_Delay(1000);
 
     // Write data to local screenbuffer
     ssd1306_SetCursor(0, 0);
-    ssd1306_WriteString("ssd1306", Font_11x18, White);
+    ssd1306_WriteString("Mutex", Font_11x18, White);
 
     ssd1306_SetCursor(0, 36);
-    ssd1306_WriteString("4ilo", Font_11x18, White);
+    ssd1306_WriteString("Firmware", Font_11x18, White);
 
     // Draw rectangle on screen
     for (uint8_t i=0; i<28; i++) {
@@ -99,8 +96,6 @@ int main(void)
 
     // Copy all data from local screenbuffer to the screen
     ssd1306_UpdateScreen(&hi2c1);
-
-
 
   /* USER CODE END 2 */
 
