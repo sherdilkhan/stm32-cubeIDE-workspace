@@ -86,10 +86,12 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  lcd16x2_init_4bits(EN_GPIO_Port, RS_Pin, EN_Pin,
-//      D0_GPIO_Port, D0_Pin, D1_Pin, D2_Pin, D3_Pin,
-		  D4_GPIO_Port, D4_Pin, D5_Pin, D6_Pin, D7_Pin);
 
+  /*Libarary has been setup in a way, RS,EN Should be on One Port,
+   * Similarly D0~D3 Must be One Port & D4~D4 Must be on One
+   */
+  lcd16x2_init_4bits(RS_GPIO_Port, RS_Pin, EN_Pin, //One Port
+		  	  	  	 D4_GPIO_Port, D4_Pin, D5_Pin, D6_Pin, D7_Pin); //One Port
   lcd16x2_printf("Hello World");
   HAL_Delay(3000);
 
