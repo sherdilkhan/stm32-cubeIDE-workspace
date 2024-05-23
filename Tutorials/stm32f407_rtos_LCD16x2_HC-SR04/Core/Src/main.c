@@ -22,6 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "lcd16x2.h"
 #include <stdio.h>
 #include <string.h>
 /* USER CODE END Includes */
@@ -33,7 +34,11 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define TRIGGER_PIN GPIO_PIN_0
+#define ECHO_PIN GPIO_PIN_1
+#define TRIGGER_PORT GPIOD
+#define ECHO_PORT GPIOD
+#define TRIGGER_DELAY_US 10 // Trigger pulse duration in microseconds
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -42,33 +47,35 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+TIM_HandleTypeDef htim2;
+
 UART_HandleTypeDef huart2;
 
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for print_tast */
-osThreadId_t print_tastHandle;
-const osThreadAttr_t print_tast_attributes = {
-  .name = "print_tast",
+/* Definitions for myTask02 */
+osThreadId_t myTask02Handle;
+const osThreadAttr_t myTask02_attributes = {
+  .name = "myTask02",
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for data_task */
-osThreadId_t data_taskHandle;
-const osThreadAttr_t data_task_attributes = {
-  .name = "data_task",
+/* Definitions for myTask03 */
+osThreadId_t myTask03Handle;
+const osThreadAttr_t myTask03_attributes = {
+  .name = "myTask03",
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for data_queue */
-osMessageQueueId_t data_queueHandle;
-const osMessageQueueAttr_t data_queue_attributes = {
-  .name = "data_queue"
+/* Definitions for myQueue01 */
+osMessageQueueId_t myQueue01Handle;
+const osMessageQueueAttr_t myQueue01_attributes = {
+  .name = "myQueue01"
 };
 /* USER CODE BEGIN PV */
 
@@ -77,10 +84,11 @@ const osMessageQueueAttr_t data_queue_attributes = {
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_TIM2_Init(void);
 static void MX_USART2_UART_Init(void);
 void StartDefaultTask(void *argument);
-void Start_print_task(void *argument);
-void Start_data_task(void *argument);
+void StartTask02(void *argument);
+void StartTask03(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -98,6 +106,7 @@ void Start_data_task(void *argument);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
 
   /* USER CODE END 1 */
 
@@ -119,8 +128,14 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_TIM2_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
+
+   lcd16x2_init_4bits(RS_GPIO_Port, RS_Pin, EN_Pin, //One Port
+ 		  	  	  	 D4_GPIO_Port, D4_Pin, D5_Pin, D6_Pin, D7_Pin); //One Port
+   lcd16x2_printf("Hello World");
+   HAL_Delay(3000);
 
   /* USER CODE END 2 */
 
@@ -140,16 +155,8 @@ int main(void)
   /* USER CODE END RTOS_TIMERS */
 
   /* Create the queue(s) */
-  /* creation of data_queue */
-  data_queueHandle = osMessageQueueNew (10, sizeof(float), &data_queue_attributes);
-  if (data_queueHandle == NULL) {
-      // Handle message queue creation error
-      char buffer[50];
-      snprintf(buffer, sizeof(buffer), "Queue Creation Error\r\n");
-      HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
-      // You may want to halt or enter an error state here
-      while (1);
-  }
+  /* creation of myQueue01 */
+  myQueue01Handle = osMessageQueueNew (10, sizeof(float), &myQueue01_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -159,27 +166,12 @@ int main(void)
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
-  /* creation of print_tast */
-  print_tastHandle = osThreadNew(Start_print_task, NULL, &print_tast_attributes);
-  if (print_tastHandle == NULL) {
-      // Handle message queue creation error
-      char buffer[50];
-      snprintf(buffer, sizeof(buffer), "Print Task Creation Error\r\n");
-      HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
-      // You may want to halt or enter an error state here
-      while (1);
-  }
+  /* creation of myTask02 */
+  myTask02Handle = osThreadNew(StartTask02, NULL, &myTask02_attributes);
 
-  /* creation of data_task */
-  data_taskHandle = osThreadNew(Start_data_task, NULL, &data_task_attributes);
-  if (data_taskHandle == NULL) {
-      // Handle message queue creation error
-      char buffer[50];
-      snprintf(buffer, sizeof(buffer), "Data Task Creation Error\r\n");
-      HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
-      // You may want to halt or enter an error state here
-      while (1);
-  }
+  /* creation of myTask03 */
+  myTask03Handle = osThreadNew(StartTask03, NULL, &myTask03_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -190,6 +182,7 @@ int main(void)
 
   /* Start scheduler */
   osKernelStart();
+
   /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -238,13 +231,58 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV16;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV16;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV8;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 9;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 4294967295;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
+
 }
 
 /**
@@ -300,21 +338,25 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(CS_I2C_SPI_GPIO_Port, CS_I2C_SPI_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOE, CS_I2C_SPI_Pin|EN_Pin|RS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(OTG_FS_PowerSwitchOn_GPIO_Port, OTG_FS_PowerSwitchOn_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOD, LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
-                          |Audio_RST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, D0_Pin|D1_Pin|D2_Pin|D3_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : CS_I2C_SPI_Pin */
-  GPIO_InitStruct.Pin = CS_I2C_SPI_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOD, D4_Pin|D5_Pin|D6_Pin|D7_Pin
+                          |LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
+                          |trigger_Pin|Audio_RST_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : CS_I2C_SPI_Pin EN_Pin RS_Pin */
+  GPIO_InitStruct.Pin = CS_I2C_SPI_Pin|EN_Pin|RS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(CS_I2C_SPI_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
   /*Configure GPIO pin : OTG_FS_PowerSwitchOn_Pin */
   GPIO_InitStruct.Pin = OTG_FS_PowerSwitchOn_Pin;
@@ -367,10 +409,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
   HAL_GPIO_Init(CLK_IN_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD4_Pin LD3_Pin LD5_Pin LD6_Pin
-                           Audio_RST_Pin */
-  GPIO_InitStruct.Pin = LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
-                          |Audio_RST_Pin;
+  /*Configure GPIO pins : D0_Pin D1_Pin D2_Pin D3_Pin */
+  GPIO_InitStruct.Pin = D0_Pin|D1_Pin|D2_Pin|D3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : D4_Pin D5_Pin D6_Pin D7_Pin
+                           LD4_Pin LD3_Pin LD5_Pin LD6_Pin
+                           trigger_Pin Audio_RST_Pin */
+  GPIO_InitStruct.Pin = D4_Pin|D5_Pin|D6_Pin|D7_Pin
+                          |LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
+                          |trigger_Pin|Audio_RST_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -398,11 +449,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF10_OTG_FS;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : OTG_FS_OverCurrent_Pin */
-  GPIO_InitStruct.Pin = OTG_FS_OverCurrent_Pin;
+  /*Configure GPIO pins : echo_Pin OTG_FS_OverCurrent_Pin */
+  GPIO_InitStruct.Pin = echo_Pin|OTG_FS_OverCurrent_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(OTG_FS_OverCurrent_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pins : Audio_SCL_Pin Audio_SDA_Pin */
   GPIO_InitStruct.Pin = Audio_SCL_Pin|Audio_SDA_Pin;
@@ -439,71 +490,87 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1000);
+    osDelay(1);
   }
   /* USER CODE END 5 */
 }
 
-/* USER CODE BEGIN Header_Start_print_task */
+/* USER CODE BEGIN Header_StartTask02 */
 /**
-* @brief Function implementing the print_task thread.
+* @brief Function implementing the myTask02 thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_Start_print_task */
-void Start_print_task(void *argument)
+/* USER CODE END Header_StartTask02 */
+void StartTask02(void *argument)
 {
-  /* USER CODE BEGIN Start_print_task */
+  /* USER CODE BEGIN StartTask02 */
+	 // Trigger pulse
+	 HAL_GPIO_WritePin(TRIGGER_PORT, TRIGGER_PIN, GPIO_PIN_SET);
+	 // Wait for the specified pulse duration 10uSec
+	 __HAL_TIM_SET_COUNTER(&htim2, 0);
+	 while (__HAL_TIM_GET_COUNTER (&htim2) < 10);
+	 HAL_GPIO_WritePin(TRIGGER_PORT, TRIGGER_PIN, GPIO_PIN_RESET);
+
+	 // Wait for ECHO pin to go HIGH
+	 while (!HAL_GPIO_ReadPin(ECHO_PORT, ECHO_PIN));
+	 // Start the timer
+	 HAL_TIM_Base_Start(&htim2);
+
+	 // Wait for ECHO pin to go LOW
+	 while (HAL_GPIO_ReadPin(ECHO_PORT, ECHO_PIN));
+
+	 // Stop the timer
+	 HAL_TIM_Base_Stop(&htim2);
+	 uint32_t pulse_width = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
+
+	 // Calculate distance (in cm)
+	 float distance = pulse_width * 0.017; // Speed of sound is approximately 340 m/s
+
+	 osStatus_t status;
+     // Put the message in the queue with a timeout
+     status = osMessageQueuePut(myQueue01Handle, &distance, 0, 500);
+
+     if (status != osOK) {
+         // Handle queue put error
+         char buffer[50];
+         snprintf(buffer, sizeof(buffer), "Queue Put Error: %d\r\n", status);
+         HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
+     }
+     osDelay(1000); // Adjust the delay as needed
+
+  /* USER CODE END StartTask02 */
+}
+
+/* USER CODE BEGIN Header_StartTask03 */
+/**
+* @brief Function implementing the myTask03 thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask03 */
+void StartTask03(void *argument)
+{
+  /* USER CODE BEGIN StartTask03 */
 	float distance;
 	char buffer[50];
 	osStatus_t status;
 
 	for (;;) {
 	    // Wait for a message from the queue with a finite timeout (100 milliseconds)
-	    status = osMessageQueueGet(data_queueHandle, &distance, NULL, 100);
+	    status = osMessageQueueGet(myQueue01Handle, &distance, NULL, 100);
 	    if (status == osOK) {
 	       snprintf(buffer, sizeof(buffer), "Distance: %.2f\r\n", distance);
 	       HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
 	    }
 	    osDelay(1000); // Adjust the delay as needed
 	}
-
-  /* USER CODE END Start_print_task */
-}
-
-/* USER CODE BEGIN Header_Start_data_task */
-/**
-* @brief Function implementing the data_task thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_Start_data_task */
-void Start_data_task(void *argument)
-{
-  /* USER CODE BEGIN Start_data_task */
-	    float distance = 1.23;
-	    osStatus_t status;
-	    for (;;) {
-	           // Simulate getting distance data from a sensor
-	           distance += 1; // Replace with actual sensor reading
-
-	           // Put the message in the queue with a timeout
-	           status = osMessageQueuePut(data_queueHandle, &distance, 0, 500);
-
-	           if (status != osOK) {
-	               // Handle queue put error
-	               char buffer[50];
-	               snprintf(buffer, sizeof(buffer), "Queue Put Error: %d\r\n", status);
-	               HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
-	           }
-	           osDelay(1000); // Adjust the delay as needed
-	       }
-  /* USER CODE END Start_data_task */
+  /* USER CODE END StartTask03 */
 }
 
 /**
   * @brief  Period elapsed callback in non blocking mode
-  * @note   This function is called  when TIM2 interrupt took place, inside
+  * @note   This function is called  when TIM1 interrupt took place, inside
   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
   * a global variable "uwTick" used as application time base.
   * @param  htim : TIM handle
@@ -514,7 +581,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 0 */
 
   /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM2) {
+  if (htim->Instance == TIM1) {
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
