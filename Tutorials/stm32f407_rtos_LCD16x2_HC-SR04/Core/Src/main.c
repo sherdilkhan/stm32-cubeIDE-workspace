@@ -34,16 +34,21 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define TRIGGER_PIN GPIO_PIN_0
-#define ECHO_PIN GPIO_PIN_1
-#define TRIGGER_PORT GPIOD
-#define ECHO_PORT GPIOD
+#define TRIG_PIN GPIO_PIN_0
+#define ECHO_PIN GPIO_PIN_15
+#define TRIG_PORT GPIOD
+#define ECHO_PORT GPIOA
 #define TRIGGER_DELAY_US 10 // Trigger pulse duration in microseconds
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+uint32_t pMillis;
 
+float val1 = 0;
+float val2 = 0;
+float distance  = 0;
+char string[15];
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -63,7 +68,7 @@ osThreadId_t myTask02Handle;
 const osThreadAttr_t myTask02_attributes = {
   .name = "myTask02",
   .stack_size = 512 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityHigh,
 };
 /* Definitions for myTask03 */
 osThreadId_t myTask03Handle;
@@ -96,7 +101,7 @@ void StartTask03(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+void Delay_10us(void);
 /* USER CODE END 0 */
 
 /**
@@ -132,10 +137,14 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  /*
+
    lcd16x2_init_4bits(RS_GPIO_Port, RS_Pin, EN_Pin, //One Port
  		  	  	  	 D4_GPIO_Port, D4_Pin, D5_Pin, D6_Pin, D7_Pin); //One Port
    lcd16x2_printf("Hello World");
    HAL_Delay(3000);
+
+   */
 
   /* USER CODE END 2 */
 
@@ -174,6 +183,9 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  char buffer[50];
+           snprintf(buffer, sizeof(buffer), "Handle initialized\r\n");
+           HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
@@ -449,11 +461,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF10_OTG_FS;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : echo_Pin OTG_FS_OverCurrent_Pin */
-  GPIO_InitStruct.Pin = echo_Pin|OTG_FS_OverCurrent_Pin;
+  /*Configure GPIO pin : PA15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : OTG_FS_OverCurrent_Pin */
+  GPIO_InitStruct.Pin = OTG_FS_OverCurrent_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(OTG_FS_OverCurrent_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : Audio_SCL_Pin Audio_SDA_Pin */
   GPIO_InitStruct.Pin = Audio_SCL_Pin|Audio_SDA_Pin;
@@ -490,43 +508,44 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+    osDelay(10);
   }
   /* USER CODE END 5 */
 }
 
 /* USER CODE BEGIN Header_StartTask02 */
-/**
-* @brief Function implementing the myTask02 thread.
-* @param argument: Not used
-* @retval None
-*/
+
 /* USER CODE END Header_StartTask02 */
+
 void StartTask02(void *argument)
 {
   /* USER CODE BEGIN StartTask02 */
+	for (;;) {
+	   char buffer[50];
 	 // Trigger pulse
-	 HAL_GPIO_WritePin(TRIGGER_PORT, TRIGGER_PIN, GPIO_PIN_SET);
-	 // Wait for the specified pulse duration 10uSec
-	 __HAL_TIM_SET_COUNTER(&htim2, 0);
-	 while (__HAL_TIM_GET_COUNTER (&htim2) < 10);
-	 HAL_GPIO_WritePin(TRIGGER_PORT, TRIGGER_PIN, GPIO_PIN_RESET);
+	  HAL_GPIO_WritePin(TRIG_PORT, TRIG_PIN, GPIO_PIN_RESET);
+	  __HAL_TIM_SET_COUNTER(&htim2, 0);
+	  HAL_GPIO_WritePin(TRIG_PORT, TRIG_PIN, GPIO_PIN_SET);
+	  HAL_TIM_Base_Start(&htim2);
+	   snprintf(buffer, sizeof(buffer), "B1");
+	   while (__HAL_TIM_GET_COUNTER (&htim2) < 10);  // wait for 10 us
 
-	 // Wait for ECHO pin to go HIGH
-	 while (!HAL_GPIO_ReadPin(ECHO_PORT, ECHO_PIN));
-	 // Start the timer
-	 HAL_TIM_Base_Start(&htim2);
+	   HAL_GPIO_WritePin(TRIG_PORT, TRIG_PIN, GPIO_PIN_RESET);
 
-	 // Wait for ECHO pin to go LOW
-	 while (HAL_GPIO_ReadPin(ECHO_PORT, ECHO_PIN));
+	   pMillis = HAL_GetTick();
+	   while (!(HAL_GPIO_ReadPin (ECHO_PORT, ECHO_PIN)) && pMillis + 10 >  HAL_GetTick());
+	   val1 = __HAL_TIM_GET_COUNTER (&htim2);
+	   snprintf(buffer, sizeof(buffer), "B2");
+	   pMillis = HAL_GetTick();
+	   while ((HAL_GPIO_ReadPin (ECHO_PORT, ECHO_PIN)) && pMillis + 50 > HAL_GetTick());
+	   val2 = __HAL_TIM_GET_COUNTER (&htim2);
 
-	 // Stop the timer
-	 HAL_TIM_Base_Stop(&htim2);
-	 uint32_t pulse_width = HAL_TIM_ReadCapturedValue(&htim2, TIM_CHANNEL_1);
+	   	distance = (val2-val1)*5000;
 
-	 // Calculate distance (in cm)
-	 float distance = pulse_width * 0.017; // Speed of sound is approximately 340 m/s
 
+	   	snprintf(buffer, sizeof(buffer), "Distance Is: %.2f\r\n", distance);
+
+/*
 	 osStatus_t status;
      // Put the message in the queue with a timeout
      status = osMessageQueuePut(myQueue01Handle, &distance, 0, 500);
@@ -537,14 +556,15 @@ void StartTask02(void *argument)
          snprintf(buffer, sizeof(buffer), "Queue Put Error: %d\r\n", status);
          HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
      }
-     osDelay(1000); // Adjust the delay as needed
-
+*/
+     osDelay(10); // Adjust the delay as needed
+	}
   /* USER CODE END StartTask02 */
 }
 
 /* USER CODE BEGIN Header_StartTask03 */
 /**
-* @brief Function implementing the myTask03 thread.
+* @brief Function implementing the myTask03 threadr
 * @param argument: Not used
 * @retval None
 */
@@ -552,18 +572,17 @@ void StartTask02(void *argument)
 void StartTask03(void *argument)
 {
   /* USER CODE BEGIN StartTask03 */
-	float distance;
-	char buffer[50];
-	osStatus_t status;
+	//char buffer[50];
+	//osStatus_t status;
 
 	for (;;) {
 	    // Wait for a message from the queue with a finite timeout (100 milliseconds)
-	    status = osMessageQueueGet(myQueue01Handle, &distance, NULL, 100);
-	    if (status == osOK) {
-	       snprintf(buffer, sizeof(buffer), "Distance: %.2f\r\n", distance);
-	       HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
-	    }
-	    osDelay(1000); // Adjust the delay as needed
+	   // status = osMessageQueueGet(myQueue01Handle, &distance, NULL, 100);
+	    //if (status == osOK) {
+	     //  snprintf(buffer, sizeof(buffer), "Distance: %.2f\r\n", distance);
+	    //   HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), HAL_MAX_DELAY);
+	    //}
+	    osDelay(10); // Adjust the delay as needed
 	}
   /* USER CODE END StartTask03 */
 }
@@ -585,9 +604,18 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-
-  /* USER CODE END Callback 1 */
 }
+
+void Delay_10us(void) {
+    uint32_t startTick = __HAL_TIM_GET_COUNTER(&htim2);
+    uint32_t delayTicks = 10; // 10 µs
+
+    // Instead of busy-waiting, yield to the scheduler
+    while ((__HAL_TIM_GET_COUNTER(&htim2) - startTick) < delayTicks) {
+        taskYIELD(); // Yield to other tasks
+    }
+}
+  /* USER CODE END Callback 1 */
 
 /**
   * @brief  This function is executed in case of error occurrence.

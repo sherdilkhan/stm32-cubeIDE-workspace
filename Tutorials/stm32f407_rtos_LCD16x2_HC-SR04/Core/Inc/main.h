@@ -133,8 +133,6 @@ void Error_Handler(void);
 #define I2S3_SD_GPIO_Port GPIOC
 #define trigger_Pin GPIO_PIN_0
 #define trigger_GPIO_Port GPIOD
-#define echo_Pin GPIO_PIN_1
-#define echo_GPIO_Port GPIOD
 #define Audio_RST_Pin GPIO_PIN_4
 #define Audio_RST_GPIO_Port GPIOD
 #define OTG_FS_OverCurrent_Pin GPIO_PIN_5
