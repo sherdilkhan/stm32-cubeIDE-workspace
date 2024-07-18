@@ -173,7 +173,7 @@ int main(void)
 	dev.write = user_i2c_write;
 	dev.delay_ms = user_delay_ms;
 
-	rslt = bme280_init(&dev); // Initialize the sensor
+	rslt = bme280_init(&dev); // Initialize the sensor.
 
 	// Configure the sensor
 	dev.settings.osr_h = BME280_OVERSAMPLING_1X;
