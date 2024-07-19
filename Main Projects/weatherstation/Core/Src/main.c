@@ -53,14 +53,14 @@ UART_HandleTypeDef huart2;
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityBelowNormal,
 };
 /* Definitions for bme280Task */
 osThreadId_t bme280TaskHandle;
 const osThreadAttr_t bme280Task_attributes = {
   .name = "bme280Task",
-  .stack_size = 128 * 4,
+  .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
@@ -88,7 +88,6 @@ struct bme280_dev dev;
 struct bme280_data comp_data;
 int8_t rslt;
 
-
 int8_t user_i2c_read(uint8_t id, uint8_t reg_addr, uint8_t *data, uint16_t len) {
 	if (HAL_I2C_Master_Transmit(&hi2c1, (id << 1), &reg_addr, 1, 10) != HAL_OK)
 		return -1;
@@ -99,13 +98,10 @@ int8_t user_i2c_read(uint8_t id, uint8_t reg_addr, uint8_t *data, uint16_t len) 
 	return 0;
 }
 
-
 void user_delay_ms(uint32_t period) {
 
 	HAL_Delay(period);
 }
-
-
 
 int8_t user_i2c_write(uint8_t id, uint8_t reg_addr, uint8_t *data, uint16_t len) {
 	int8_t *buf;
@@ -121,15 +117,12 @@ int8_t user_i2c_write(uint8_t id, uint8_t reg_addr, uint8_t *data, uint16_t len)
 	return 0;
 }
 
-
 // for printf() redirection to USART2
-int _write(int file, char *data, int len)
-{
-    HAL_StatusTypeDef status = HAL_UART_Transmit(&huart2, (uint8_t*)data, len, HAL_MAX_DELAY);
-    return (status == HAL_OK ? len : 0);
+int _write(int file, char *data, int len) {
+	HAL_StatusTypeDef status = HAL_UART_Transmit(&huart2, (uint8_t*) data, len,
+			HAL_MAX_DELAY);
+	return (status == HAL_OK ? len : 0);
 }
-
-
 
 /* USER CODE END 0 */
 
@@ -174,6 +167,9 @@ int main(void)
 	dev.delay_ms = user_delay_ms;
 
 	rslt = bme280_init(&dev); // Initialize the sensor.
+	if (rslt == BME280_OK) {
+		printf("Sensor Initialized\r\n");
+	}
 
 	// Configure the sensor
 	dev.settings.osr_h = BME280_OVERSAMPLING_1X;
@@ -184,16 +180,19 @@ int main(void)
 			BME280_OSR_PRESS_SEL | BME280_OSR_TEMP_SEL | BME280_OSR_HUM_SEL
 					| BME280_FILTER_SEL, &dev);
 	//rslt = bme280_set_sensor_settings(BME280_ALL_SETTINGS_SEL, &dev); this can also be used in place of above
+	if (rslt == BME280_OK) {
+	    printf("Sensor settings successfully set.\r\n");
+	} else {
+	    printf("Failed to set sensor settings. Error code: %d\r\n", rslt);
+	}
 
-    if (rslt == BME280_OK) {
-    	printf("Sensor Initialization Failed\n");
-    }
-
-    rslt = bme280_set_sensor_mode(BME280_NORMAL_MODE, &dev);
-    if (rslt != BME280_OK) {
-        printf("Mode Initialization Failed\n");
-    }
-
+	rslt = bme280_set_sensor_mode(BME280_NORMAL_MODE, &dev);
+	dev.delay_ms(40);
+	if (rslt == BME280_OK) {
+	    printf("Sensor Mode successfully set.\r\n");
+	} else {
+	    printf("Failed to set sensor Mode. Error code: %d\r\n", rslt);
+	}
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -262,13 +261,12 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLM = 8;
-  RCC_OscInitStruct.PLL.PLLN = 50;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLM = 4;
+  RCC_OscInitStruct.PLL.PLLN = 175;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV4;
   RCC_OscInitStruct.PLL.PLLQ = 7;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -285,7 +283,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }
@@ -525,16 +523,28 @@ void Startbme280Task(void *argument)
   /* USER CODE BEGIN Startbme280Task */
 	/* Infinite loop */
 	for (;;) {
+		printf("we are in task bme280\r\n");
+
+
 		rslt = bme280_get_sensor_data(BME280_ALL, &comp_data, &dev);
 		if (rslt == BME280_OK) {
-			temperature = comp_data.temperature;
-			pressure = comp_data.pressure;
-			humidity = comp_data.humidity;
-			osDelay(100);
-			printf("Sensor Data:\nTemperature: %.2f°C\nHumidity: %.2f%%\nPressure: %.2f hPa\n", temperature, humidity, pressure);
-
+		    printf("Sensor Data Retrieved successfully set.\r\n");
+		} else {
+		    printf("Failed to Retrieve sensor Data. Error code: %d\r\n", rslt);
 		}
+		if (rslt == BME280_OK) {
+			temperature = comp_data.temperature/100;
+			pressure = comp_data.pressure/100;
+			humidity = comp_data.humidity/1024;
+			printf(
+					"Sensor Data:\r\nTemperature: %.1f°C\r\nHumidity: %.1f%%\r\nPressure: %.2f hPa\r\n",
+					temperature, humidity, pressure);
+		} else if (rslt != BME280_OK) {
+			printf("Counld get result from BME280 Module\r\n");
+		}
+		osDelay(1000);
 	}
+
   /* USER CODE END Startbme280Task */
 }
 
