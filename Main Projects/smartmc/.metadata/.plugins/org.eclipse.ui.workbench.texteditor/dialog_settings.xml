@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="EVENT_START_BUTTON_PRESSED"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="EVENT_START_BUTTON_PRESSED"/>
+			<item value="EVENT_WASH_TIMER_EXPIRED"/>
+			<item value="EVENT_WATER_LEVEL_REACHED_RINSE"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+</section>

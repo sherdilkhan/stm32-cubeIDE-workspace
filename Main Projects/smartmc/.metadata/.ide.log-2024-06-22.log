@@ -1,0 +1,467 @@
+2024-06-23 00:25:31,392 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 898638640 Bytes (1073741824)
+2024-06-23 00:25:32,926 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 923804464 Bytes (1073741824)
+2024-06-23 00:25:34,578 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 746978304 Bytes (1073741824)
+2024-06-23 00:25:36,936 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2024-06-23 00:25:36,936 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-06-23 00:25:36,936 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-06-23 00:25:36,936 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-06-23 00:25:36,936 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-06-23 00:25:36,936 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-06-23 00:25:36,937 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.9.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.11.1.202404110753\\db\
+2024-06-23 00:25:37,013 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\license.tmp_save
+2024-06-23 00:25:37,092 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\license.tmp
+2024-06-23 00:25:37,130 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\gpio.tmp_save
+2024-06-23 00:25:37,231 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\gpio.tmp
+2024-06-23 00:25:37,344 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-06-23 00:25:37,353 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp_save
+2024-06-23 00:25:37,412 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp
+2024-06-23 00:25:37,416 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp_save
+2024-06-23 00:25:37,475 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp
+2024-06-23 00:25:37,479 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-06-23 00:25:37,535 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp
+2024-06-23 00:25:37,539 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp_save
+2024-06-23 00:25:37,634 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp
+2024-06-23 00:25:37,638 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp_save
+2024-06-23 00:25:37,719 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp
+2024-06-23 00:25:37,723 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp_save
+2024-06-23 00:25:37,779 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp
+2024-06-23 00:25:37,784 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-06-23 00:25:37,843 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp
+2024-06-23 00:25:37,847 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp_save
+2024-06-23 00:25:37,929 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp
+2024-06-23 00:25:37,934 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp_save
+2024-06-23 00:25:37,991 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp
+2024-06-23 00:25:38,000 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-06-23 00:25:38,009 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp_save
+2024-06-23 00:25:38,064 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp
+2024-06-23 00:25:38,071 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp_save
+2024-06-23 00:25:38,125 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp
+2024-06-23 00:25:38,131 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-06-23 00:25:38,188 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp
+2024-06-23 00:25:38,194 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp_save
+2024-06-23 00:25:38,251 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp
+2024-06-23 00:25:38,257 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp_save
+2024-06-23 00:25:38,316 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp
+2024-06-23 00:25:38,322 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp_save
+2024-06-23 00:25:38,414 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp
+2024-06-23 00:25:38,421 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-06-23 00:25:38,481 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp
+2024-06-23 00:25:38,487 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp_save
+2024-06-23 00:25:38,545 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp
+2024-06-23 00:25:38,552 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp_save
+2024-06-23 00:25:38,610 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp
+2024-06-23 00:25:38,617 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\FreeRTOSConfig.h_save
+2024-06-23 00:25:38,696 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\FreeRTOSConfig.h
+2024-06-23 00:25:38,704 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\freertos.c_save
+2024-06-23 00:25:38,769 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\freertos.c
+2024-06-23 00:25:38,784 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_it.c_save
+2024-06-23 00:25:38,927 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_it.c
+2024-06-23 00:25:38,935 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_it.h_save
+2024-06-23 00:25:39,009 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_it.h
+2024-06-23 00:25:39,028 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_msp.c_save
+2024-06-23 00:25:39,154 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_msp.c
+2024-06-23 00:25:39,160 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\system.tmp_save
+2024-06-23 00:25:39,230 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\system.tmp
+2024-06-23 00:25:39,237 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2024-06-23 00:25:39,313 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_timebase_tim.c
+2024-06-23 00:25:39,326 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_hal_conf.h_save
+2024-06-23 00:25:39,400 [INFO] CodeEngine:335 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_hal_conf.h
+2024-06-23 00:25:39,436 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\main.h_save
+2024-06-23 00:25:39,544 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\main.h
+2024-06-23 00:25:39,553 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\main.c_save
+2024-06-23 00:25:39,740 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\main.c
+2024-06-23 00:25:40,221 [INFO] ProjectBuilder:3163 - Time for Copy HAL[1] : 265mS.
+2024-06-23 00:25:40,226 [INFO] ProjectBuilder:4736 - Project Generator version: 4.3.0-B58
+2024-06-23 00:25:40,303 [INFO] ConfigFileManager:1503 - The Die is : DIE413
+2024-06-23 00:25:41,273 [INFO] ProjectBuilder:5002 - Time for Generating toolchain IDE Files: 1047mS.
+2024-06-23 00:25:41,274 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 1mS.
+2024-06-23 00:25:41,280 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.
+2024-06-23 01:52:30,242 [INFO] Gpio:277 - dependency for GPIO [RCC, USART2]
+2024-06-23 01:53:39,330 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 760502384 Bytes (1073741824)
+2024-06-23 01:53:41,228 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 851054480 Bytes (1073741824)
+2024-06-23 01:53:42,581 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2024-06-23 01:53:42,581 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-06-23 01:53:42,581 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-06-23 01:53:42,581 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-06-23 01:53:42,581 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-06-23 01:53:42,582 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-06-23 01:53:42,583 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.9.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.11.1.202404110753\\db\
+2024-06-23 01:53:42,687 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\license.tmp_save
+2024-06-23 01:53:42,809 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\license.tmp
+2024-06-23 01:53:42,861 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\gpio.tmp_save
+2024-06-23 01:53:42,943 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\gpio.tmp
+2024-06-23 01:53:43,073 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-06-23 01:53:43,080 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp_save
+2024-06-23 01:53:43,145 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp
+2024-06-23 01:53:43,150 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp_save
+2024-06-23 01:53:43,206 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp
+2024-06-23 01:53:43,210 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-06-23 01:53:43,284 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp
+2024-06-23 01:53:43,288 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp_save
+2024-06-23 01:53:43,345 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp
+2024-06-23 01:53:43,350 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp_save
+2024-06-23 01:53:43,428 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp
+2024-06-23 01:53:43,433 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp_save
+2024-06-23 01:53:43,490 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp
+2024-06-23 01:53:43,494 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-06-23 01:53:43,591 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp
+2024-06-23 01:53:43,595 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp_save
+2024-06-23 01:53:43,650 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp
+2024-06-23 01:53:43,654 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp_save
+2024-06-23 01:53:43,710 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp
+2024-06-23 01:53:43,720 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-06-23 01:53:43,729 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp_save
+2024-06-23 01:53:43,789 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp
+2024-06-23 01:53:43,795 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp_save
+2024-06-23 01:53:43,878 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp
+2024-06-23 01:53:43,885 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-06-23 01:53:43,940 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp
+2024-06-23 01:53:43,946 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp_save
+2024-06-23 01:53:44,001 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp
+2024-06-23 01:53:44,007 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp_save
+2024-06-23 01:53:44,066 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp
+2024-06-23 01:53:44,073 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp_save
+2024-06-23 01:53:44,128 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp
+2024-06-23 01:53:44,134 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-06-23 01:53:44,219 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp
+2024-06-23 01:53:44,225 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp_save
+2024-06-23 01:53:44,281 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp
+2024-06-23 01:53:44,287 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp_save
+2024-06-23 01:53:44,346 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp
+2024-06-23 01:53:44,352 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\FreeRTOSConfig.h_save
+2024-06-23 01:53:44,433 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\FreeRTOSConfig.h
+2024-06-23 01:53:44,439 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\freertos.c_save
+2024-06-23 01:53:44,511 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\freertos.c
+2024-06-23 01:53:44,526 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_it.c_save
+2024-06-23 01:53:44,671 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_it.c
+2024-06-23 01:53:44,677 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_it.h_save
+2024-06-23 01:53:44,741 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_it.h
+2024-06-23 01:53:44,756 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_msp.c_save
+2024-06-23 01:53:44,883 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_msp.c
+2024-06-23 01:53:44,886 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\system.tmp_save
+2024-06-23 01:53:44,942 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\system.tmp
+2024-06-23 01:53:44,949 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2024-06-23 01:53:45,011 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_timebase_tim.c
+2024-06-23 01:53:45,023 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_hal_conf.h_save
+2024-06-23 01:53:45,093 [INFO] CodeEngine:335 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_hal_conf.h
+2024-06-23 01:53:45,124 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\main.h_save
+2024-06-23 01:53:45,201 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\main.h
+2024-06-23 01:53:45,206 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\main.c_save
+2024-06-23 01:53:45,336 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\main.c
+2024-06-23 01:53:45,861 [INFO] ProjectBuilder:3163 - Time for Copy HAL[1] : 294mS.
+2024-06-23 01:53:45,866 [INFO] ProjectBuilder:4736 - Project Generator version: 4.3.0-B58
+2024-06-23 01:53:45,967 [INFO] ConfigFileManager:1503 - The Die is : DIE413
+2024-06-23 01:53:46,853 [INFO] ProjectBuilder:5002 - Time for Generating toolchain IDE Files: 987mS.
+2024-06-23 01:53:46,855 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 1mS.
+2024-06-23 01:53:46,874 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.
+2024-06-23 02:03:37,994 [INFO] Gpio:277 - dependency for GPIO [RCC, USART2]
+2024-06-23 02:03:46,147 [ERROR] RtosPanel:558 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2024-06-23 02:03:48,303 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:03:48,303 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:03:48,304 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:03:48,304 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:03:48,304 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:03:48,304 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:03:48,304 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:03:48,304 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:03:48,304 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:03:48,304 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:03:48,304 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:03:48,304 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:03:48,304 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:03:48,304 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:03:48,304 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:03:55,287 [INFO] EditThreadDialog:704 - RAM SIZE (in KB): 128
+2024-06-23 02:03:55,287 [INFO] EditThreadDialog:706 - RAM SIZE (in words): 32768
+2024-06-23 02:04:01,129 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:01,129 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:01,129 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:01,129 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:01,129 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:01,129 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:01,129 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:01,129 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:01,129 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:01,129 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:01,129 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:01,129 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:01,129 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:01,129 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:01,129 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:04,455 [INFO] EditThreadDialog:704 - RAM SIZE (in KB): 128
+2024-06-23 02:04:04,456 [INFO] EditThreadDialog:706 - RAM SIZE (in words): 32768
+2024-06-23 02:04:08,349 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:08,349 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:08,349 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:08,349 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:08,349 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:08,349 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:08,349 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:08,350 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:08,350 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:08,350 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:08,350 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:08,350 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:08,350 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:08,350 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:08,350 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:09,345 [INFO] EditThreadDialog:704 - RAM SIZE (in KB): 128
+2024-06-23 02:04:09,345 [INFO] EditThreadDialog:706 - RAM SIZE (in words): 32768
+2024-06-23 02:04:16,090 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:16,090 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:16,090 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:16,090 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:16,090 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:16,090 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:16,091 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:16,091 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:16,091 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:16,091 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:16,091 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:16,091 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:16,091 [INFO] TasksAndQueuesTab:757 - Dynamic
+2024-06-23 02:04:16,091 [WARN] TasksAndQueuesTab:763 - 128 128
+2024-06-23 02:04:16,091 [WARN] TasksAndQueuesTab:775 - max value is: 3840.0
+2024-06-23 02:04:21,708 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 706323256 Bytes (1073741824)
+2024-06-23 02:04:23,497 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 887229576 Bytes (1073741824)
+2024-06-23 02:04:28,330 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 705156904 Bytes (1073741824)
+2024-06-23 02:04:29,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2024-06-23 02:04:29,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-06-23 02:04:29,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-06-23 02:04:29,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-06-23 02:04:29,766 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-06-23 02:04:29,767 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-06-23 02:04:29,768 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.9.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.11.1.202404110753\\db\
+2024-06-23 02:04:29,845 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\license.tmp_save
+2024-06-23 02:04:29,924 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\license.tmp
+2024-06-23 02:04:29,962 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\gpio.tmp_save
+2024-06-23 02:04:30,047 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\gpio.tmp
+2024-06-23 02:04:30,145 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-06-23 02:04:30,154 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp_save
+2024-06-23 02:04:30,207 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp
+2024-06-23 02:04:30,210 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp_save
+2024-06-23 02:04:30,267 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp
+2024-06-23 02:04:30,271 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-06-23 02:04:30,341 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp
+2024-06-23 02:04:30,345 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp_save
+2024-06-23 02:04:30,404 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp
+2024-06-23 02:04:30,408 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp_save
+2024-06-23 02:04:30,466 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp
+2024-06-23 02:04:30,471 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp_save
+2024-06-23 02:04:30,537 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp
+2024-06-23 02:04:30,540 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-06-23 02:04:30,597 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp
+2024-06-23 02:04:30,602 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp_save
+2024-06-23 02:04:30,660 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp
+2024-06-23 02:04:30,664 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp_save
+2024-06-23 02:04:30,719 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp
+2024-06-23 02:04:30,729 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-06-23 02:04:30,738 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp_save
+2024-06-23 02:04:30,813 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp
+2024-06-23 02:04:30,820 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp_save
+2024-06-23 02:04:30,878 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp
+2024-06-23 02:04:30,885 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-06-23 02:04:30,943 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp
+2024-06-23 02:04:30,949 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp_save
+2024-06-23 02:04:31,035 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp
+2024-06-23 02:04:31,043 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp_save
+2024-06-23 02:04:31,121 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp
+2024-06-23 02:04:31,128 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp_save
+2024-06-23 02:04:31,184 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp
+2024-06-23 02:04:31,191 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-06-23 02:04:31,248 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp
+2024-06-23 02:04:31,255 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp_save
+2024-06-23 02:04:31,314 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp
+2024-06-23 02:04:31,320 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp_save
+2024-06-23 02:04:31,398 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp
+2024-06-23 02:04:31,405 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\FreeRTOSConfig.h_save
+2024-06-23 02:04:31,488 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\FreeRTOSConfig.h
+2024-06-23 02:04:31,494 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\freertos.c_save
+2024-06-23 02:04:31,560 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\freertos.c
+2024-06-23 02:04:31,575 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_it.c_save
+2024-06-23 02:04:31,723 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_it.c
+2024-06-23 02:04:31,729 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_it.h_save
+2024-06-23 02:04:31,793 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_it.h
+2024-06-23 02:04:31,810 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_msp.c_save
+2024-06-23 02:04:31,942 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_msp.c
+2024-06-23 02:04:31,946 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\system.tmp_save
+2024-06-23 02:04:32,004 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\system.tmp
+2024-06-23 02:04:32,010 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2024-06-23 02:04:32,077 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_timebase_tim.c
+2024-06-23 02:04:32,089 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_hal_conf.h_save
+2024-06-23 02:04:32,165 [INFO] CodeEngine:335 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_hal_conf.h
+2024-06-23 02:04:32,195 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\main.h_save
+2024-06-23 02:04:32,270 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\main.h
+2024-06-23 02:04:32,276 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\main.c_save
+2024-06-23 02:04:32,408 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\main.c
+2024-06-23 02:04:32,941 [INFO] ProjectBuilder:3163 - Time for Copy HAL[1] : 285mS.
+2024-06-23 02:04:32,946 [INFO] ProjectBuilder:4736 - Project Generator version: 4.3.0-B58
+2024-06-23 02:04:33,050 [INFO] ConfigFileManager:1503 - The Die is : DIE413
+2024-06-23 02:04:34,104 [INFO] ProjectBuilder:5002 - Time for Generating toolchain IDE Files: 1158mS.
+2024-06-23 02:04:34,105 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 1mS.
+2024-06-23 02:04:34,115 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.
+2024-06-23 02:09:19,240 [INFO] Gpio:277 - dependency for GPIO [RCC, USART2]
+2024-06-23 02:09:27,063 [INFO] Gpio:277 - dependency for GPIO [RCC, USART2]
+2024-06-23 02:09:27,102 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-06-23 02:09:27,227 [INFO] Gpio:277 - dependency for GPIO [RCC, USART2]
+2024-06-23 02:09:27,268 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-06-23 02:09:51,465 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 759862416 Bytes (1073741824)
+2024-06-23 02:09:52,891 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 749421368 Bytes (1073741824)
+2024-06-23 02:09:59,439 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 714894368 Bytes (1073741824)
+2024-06-23 02:10:02,505 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2024-06-23 02:10:02,505 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-06-23 02:10:02,505 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-06-23 02:10:02,505 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-06-23 02:10:02,505 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-06-23 02:10:02,506 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-06-23 02:10:02,506 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.9.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.11.1.202404110753\\db\
+2024-06-23 02:10:02,584 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\license.tmp_save
+2024-06-23 02:10:02,643 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\license.tmp
+2024-06-23 02:10:02,679 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\gpio.tmp_save
+2024-06-23 02:10:02,741 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\gpio.tmp
+2024-06-23 02:10:02,873 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-06-23 02:10:02,881 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp_save
+2024-06-23 02:10:02,937 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp
+2024-06-23 02:10:02,941 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp_save
+2024-06-23 02:10:02,994 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp
+2024-06-23 02:10:02,999 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-06-23 02:10:03,053 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp
+2024-06-23 02:10:03,057 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp_save
+2024-06-23 02:10:03,110 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp
+2024-06-23 02:10:03,114 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp_save
+2024-06-23 02:10:03,170 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp
+2024-06-23 02:10:03,174 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp_save
+2024-06-23 02:10:03,227 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp
+2024-06-23 02:10:03,232 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-06-23 02:10:03,290 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp
+2024-06-23 02:10:03,294 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp_save
+2024-06-23 02:10:03,350 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp
+2024-06-23 02:10:03,354 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp_save
+2024-06-23 02:10:03,409 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp
+2024-06-23 02:10:03,418 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-06-23 02:10:03,427 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp_save
+2024-06-23 02:10:03,480 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp
+2024-06-23 02:10:03,486 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp_save
+2024-06-23 02:10:03,547 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp
+2024-06-23 02:10:03,552 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-06-23 02:10:03,608 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp
+2024-06-23 02:10:03,615 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp_save
+2024-06-23 02:10:03,669 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp
+2024-06-23 02:10:03,675 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp_save
+2024-06-23 02:10:03,735 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp
+2024-06-23 02:10:03,740 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp_save
+2024-06-23 02:10:03,798 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp
+2024-06-23 02:10:03,804 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-06-23 02:10:03,860 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp
+2024-06-23 02:10:03,867 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp_save
+2024-06-23 02:10:03,926 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp
+2024-06-23 02:10:03,932 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp_save
+2024-06-23 02:10:03,990 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp
+2024-06-23 02:10:03,997 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\FreeRTOSConfig.h_save
+2024-06-23 02:10:04,075 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\FreeRTOSConfig.h
+2024-06-23 02:10:04,083 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\freertos.c_save
+2024-06-23 02:10:04,148 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\freertos.c
+2024-06-23 02:10:04,160 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_it.c_save
+2024-06-23 02:10:04,232 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_it.c
+2024-06-23 02:10:04,238 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_it.h_save
+2024-06-23 02:10:04,305 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_it.h
+2024-06-23 02:10:04,320 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_msp.c_save
+2024-06-23 02:10:04,402 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_msp.c
+2024-06-23 02:10:04,406 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\system.tmp_save
+2024-06-23 02:10:04,463 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\system.tmp
+2024-06-23 02:10:04,469 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2024-06-23 02:10:04,531 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_timebase_tim.c
+2024-06-23 02:10:04,542 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_hal_conf.h_save
+2024-06-23 02:10:04,610 [INFO] CodeEngine:335 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_hal_conf.h
+2024-06-23 02:10:04,640 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\main.h_save
+2024-06-23 02:10:04,709 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\main.h
+2024-06-23 02:10:04,717 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\main.c_save
+2024-06-23 02:10:04,836 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\main.c
+2024-06-23 02:10:05,325 [INFO] ProjectBuilder:3163 - Time for Copy HAL[1] : 289mS.
+2024-06-23 02:10:05,329 [INFO] ProjectBuilder:4736 - Project Generator version: 4.3.0-B58
+2024-06-23 02:10:05,409 [INFO] ConfigFileManager:1503 - The Die is : DIE413
+2024-06-23 02:10:06,321 [INFO] ProjectBuilder:5002 - Time for Generating toolchain IDE Files: 991mS.
+2024-06-23 02:10:06,321 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.
+2024-06-23 02:10:06,333 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.
+2024-06-23 02:32:54,284 [INFO] Gpio:277 - dependency for GPIO [RCC, USART2]
+2024-06-23 02:32:54,327 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-06-23 02:32:54,450 [INFO] Gpio:277 - dependency for GPIO [RCC, USART2]
+2024-06-23 02:32:54,486 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2024-06-23 02:33:15,430 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 723567624 Bytes (1073741824)
+2024-06-23 02:33:16,670 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 749255688 Bytes (1073741824)
+2024-06-23 02:33:21,873 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 869481232 Bytes (1073741824)
+2024-06-23 02:33:24,373 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: FREERTOS
+2024-06-23 02:33:24,373 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: SYS
+2024-06-23 02:33:24,373 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: RCC
+2024-06-23 02:33:24,373 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: NVIC
+2024-06-23 02:33:24,374 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: USART
+2024-06-23 02:33:24,374 [INFO] BlockDiagram:2759 - set Specific Code input for plugin: GPIO
+2024-06-23 02:33:24,375 [INFO] CodeGenerator:807 - code generatio: config db path: C:\ST\STM32CubeIDE_1.9.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.11.1.202404110753\\db\
+2024-06-23 02:33:24,467 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\license.tmp_save
+2024-06-23 02:33:24,555 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\license.tmp
+2024-06-23 02:33:24,612 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\gpio.tmp_save
+2024-06-23 02:33:24,699 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\gpio.tmp
+2024-06-23 02:33:24,840 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-06-23 02:33:24,846 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp_save
+2024-06-23 02:33:24,917 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp
+2024-06-23 02:33:24,922 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp_save
+2024-06-23 02:33:24,981 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp
+2024-06-23 02:33:24,985 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-06-23 02:33:25,067 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp
+2024-06-23 02:33:25,071 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp_save
+2024-06-23 02:33:25,172 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp
+2024-06-23 02:33:25,176 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp_save
+2024-06-23 02:33:25,239 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp
+2024-06-23 02:33:25,244 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp_save
+2024-06-23 02:33:25,322 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp
+2024-06-23 02:33:25,328 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-06-23 02:33:25,414 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp
+2024-06-23 02:33:25,418 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp_save
+2024-06-23 02:33:25,474 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp
+2024-06-23 02:33:25,478 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp_save
+2024-06-23 02:33:25,536 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp
+2024-06-23 02:33:25,546 [INFO] Middleware:1439 - No code input for Bsp Dependency
+2024-06-23 02:33:25,552 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp_save
+2024-06-23 02:33:25,611 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_inc.tmp
+2024-06-23 02:33:25,617 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp_save
+2024-06-23 02:33:25,672 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelInit.tmp
+2024-06-23 02:33:25,678 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp_save
+2024-06-23 02:33:25,761 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_kernelStart.tmp
+2024-06-23 02:33:25,767 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp_save
+2024-06-23 02:33:25,851 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_typedefs.tmp
+2024-06-23 02:33:25,857 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp_save
+2024-06-23 02:33:25,915 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_vars.tmp
+2024-06-23 02:33:25,922 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp_save
+2024-06-23 02:33:25,980 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_pfp.tmp
+2024-06-23 02:33:25,985 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp_save
+2024-06-23 02:33:26,046 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_obj_creat.tmp
+2024-06-23 02:33:26,052 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp_save
+2024-06-23 02:33:26,112 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_default_thread.tmp
+2024-06-23 02:33:26,118 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp_save
+2024-06-23 02:33:26,175 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\rtos_threads.tmp
+2024-06-23 02:33:26,181 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\FreeRTOSConfig.h_save
+2024-06-23 02:33:26,261 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\FreeRTOSConfig.h
+2024-06-23 02:33:26,266 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\freertos.c_save
+2024-06-23 02:33:26,334 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\freertos.c
+2024-06-23 02:33:26,348 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_it.c_save
+2024-06-23 02:33:26,498 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_it.c
+2024-06-23 02:33:26,504 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_it.h_save
+2024-06-23 02:33:26,565 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_it.h
+2024-06-23 02:33:26,579 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_msp.c_save
+2024-06-23 02:33:26,673 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_msp.c
+2024-06-23 02:33:26,678 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\system.tmp_save
+2024-06-23 02:33:26,735 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\MXTmpFiles\system.tmp
+2024-06-23 02:33:26,740 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_timebase_tim.c_save
+2024-06-23 02:33:26,803 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\stm32f4xx_hal_timebase_tim.c
+2024-06-23 02:33:26,815 [INFO] CodeEngine:311 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_hal_conf.h_save
+2024-06-23 02:33:26,884 [INFO] CodeEngine:335 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\stm32f4xx_hal_conf.h
+2024-06-23 02:33:26,912 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\main.h_save
+2024-06-23 02:33:26,989 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Inc\main.h
+2024-06-23 02:33:26,996 [INFO] CodeEngine:255 - oldGeneratedFile, C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\main.c_save
+2024-06-23 02:33:27,118 [INFO] CodeEngine:279 - Generated code: C:\Users\sherd\Documents\GitHub\smartmachine\smartmachine\Core\Src\main.c
+2024-06-23 02:33:27,618 [INFO] ProjectBuilder:3163 - Time for Copy HAL[1] : 289mS.
+2024-06-23 02:33:27,622 [INFO] ProjectBuilder:4736 - Project Generator version: 4.3.0-B58
+2024-06-23 02:33:27,701 [INFO] ConfigFileManager:1503 - The Die is : DIE413
+2024-06-23 02:33:28,683 [INFO] ProjectBuilder:5002 - Time for Generating toolchain IDE Files: 1061mS.
+2024-06-23 02:33:28,684 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 1mS.
+2024-06-23 02:33:28,692 [INFO] ProjectBuilder:3034 - Time for Copy CMSIS : 0mS.
