@@ -1,4 +1,6 @@
 "./Core/Src/BME280/bme280.o"
+"./Core/Src/SSD1306/fonts.o"
+"./Core/Src/SSD1306/ssd1306.o"
 "./Core/Src/freertos.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f4xx_hal_msp.o"

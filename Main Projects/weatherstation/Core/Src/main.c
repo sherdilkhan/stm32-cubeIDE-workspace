@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 
 #include "./BME280/bme280.h"
+#include "./SSD1306/ssd1306.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -63,6 +64,18 @@ const osThreadAttr_t bme280Task_attributes = {
   .stack_size = 256 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for lcdTask */
+osThreadId_t lcdTaskHandle;
+const osThreadAttr_t lcdTask_attributes = {
+  .name = "lcdTask",
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityBelowNormal,
+};
+/* Definitions for bme280Data */
+osMessageQueueId_t bme280DataHandle;
+const osMessageQueueAttr_t bme280Data_attributes = {
+  .name = "bme280Data"
+};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -74,6 +87,7 @@ static void MX_I2C1_Init(void);
 static void MX_USART2_UART_Init(void);
 void StartDefaultTask(void *argument);
 void Startbme280Task(void *argument);
+void StartlcdTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -82,7 +96,12 @@ void Startbme280Task(void *argument);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-float temperature, humidity, pressure;
+//float temperature, humidity, pressure;
+
+typedef struct {
+	float temperature, pressure, humidity;
+} bme280Data_t;
+
 
 struct bme280_dev dev;
 struct bme280_data comp_data;
@@ -159,7 +178,8 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
-	/* BME280 초기화 */
+	/*----------------------------------------BME280 Setup-------------------------------------------------*/
+	/* BME280 Initialization */
 	dev.dev_id = BME280_I2C_ADDR_PRIM;
 	dev.intf = BME280_I2C_INTF;
 	dev.read = user_i2c_read;
@@ -168,10 +188,12 @@ int main(void)
 
 	rslt = bme280_init(&dev); // Initialize the sensor.
 	if (rslt == BME280_OK) {
-		printf("Sensor Initialized\r\n");
+	    printf("BME280 Successfully Initialized\r\n");
+	} else {
+	    printf("Failed to Initialize BME280. Error code: %d\r\n", rslt);
 	}
 
-	// Configure the sensor
+	/* BME280 Configuration */
 	dev.settings.osr_h = BME280_OVERSAMPLING_1X;
 	dev.settings.osr_p = BME280_OVERSAMPLING_16X;
 	dev.settings.osr_t = BME280_OVERSAMPLING_2X;
@@ -181,18 +203,29 @@ int main(void)
 					| BME280_FILTER_SEL, &dev);
 	//rslt = bme280_set_sensor_settings(BME280_ALL_SETTINGS_SEL, &dev); this can also be used in place of above
 	if (rslt == BME280_OK) {
-	    printf("Sensor settings successfully set.\r\n");
+	    printf("BME280 Successfully Configured\r\n");
 	} else {
-	    printf("Failed to set sensor settings. Error code: %d\r\n", rslt);
+	    printf("Failed to Configure BME280. Error code: %d\r\n", rslt);
 	}
-
+	/* BME280 Mode Setting */
 	rslt = bme280_set_sensor_mode(BME280_NORMAL_MODE, &dev);
 	dev.delay_ms(40);
 	if (rslt == BME280_OK) {
-	    printf("Sensor Mode successfully set.\r\n");
+	    printf("BME280 Mode Successfully set.\r\n");
 	} else {
-	    printf("Failed to set sensor Mode. Error code: %d\r\n", rslt);
+	    printf("Failed to set BME280 Mode. Error code: %d\r\n", rslt);
 	}
+
+	/*-------------------------------------SSD1306 Setup-----------------------------------------------------*/
+
+	//MX_I2C1_Init();
+	ssd1306_Init(&hi2c1);
+
+    ssd1306_Fill(Black);
+    ssd1306_UpdateScreen(&hi2c1);
+
+
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -210,6 +243,10 @@ int main(void)
 	/* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
+  /* Create the queue(s) */
+  /* creation of bme280Data */
+  bme280DataHandle = osMessageQueueNew (16, sizeof(uint16_t), &bme280Data_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
 	/* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -220,6 +257,9 @@ int main(void)
 
   /* creation of bme280Task */
   bme280TaskHandle = osThreadNew(Startbme280Task, NULL, &bme280Task_attributes);
+
+  /* creation of lcdTask */
+  lcdTaskHandle = osThreadNew(StartlcdTask, NULL, &lcdTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
 	/* add threads, ... */
@@ -382,8 +422,8 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(OTG_FS_PowerSwitchOn_GPIO_Port, OTG_FS_PowerSwitchOn_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOD, LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
-                          |Audio_RST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_9|LD4_Pin|LD3_Pin|LD5_Pin
+                          |LD6_Pin|Audio_RST_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : CS_I2C_SPI_Pin */
   GPIO_InitStruct.Pin = CS_I2C_SPI_Pin;
@@ -443,10 +483,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
   HAL_GPIO_Init(CLK_IN_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD4_Pin LD3_Pin LD5_Pin LD6_Pin
-                           Audio_RST_Pin */
-  GPIO_InitStruct.Pin = LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
-                          |Audio_RST_Pin;
+  /*Configure GPIO pins : PD9 LD4_Pin LD3_Pin LD5_Pin
+                           LD6_Pin Audio_RST_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_9|LD4_Pin|LD3_Pin|LD5_Pin
+                          |LD6_Pin|Audio_RST_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -506,7 +546,8 @@ void StartDefaultTask(void *argument)
   /* USER CODE BEGIN 5 */
 	/* Infinite loop */
 	for (;;) {
-		osDelay(1);
+		HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_9);
+		osDelay(200);
 	}
   /* USER CODE END 5 */
 }
@@ -521,31 +562,88 @@ void StartDefaultTask(void *argument)
 void Startbme280Task(void *argument)
 {
   /* USER CODE BEGIN Startbme280Task */
+	bme280Data_t sensorData;
 	/* Infinite loop */
 	for (;;) {
-		printf("we are in task bme280\r\n");
 
-
+		/* BME280 Data Collection */
 		rslt = bme280_get_sensor_data(BME280_ALL, &comp_data, &dev);
 		if (rslt == BME280_OK) {
-		    printf("Sensor Data Retrieved successfully set.\r\n");
-		} else {
-		    printf("Failed to Retrieve sensor Data. Error code: %d\r\n", rslt);
+			printf("BME280 Data Retrieved successfully set.\r\n");
+			sensorData.temperature = comp_data.temperature/100;
+			sensorData.pressure = comp_data.pressure*(0.00750062/100); //1hPa = 0.00750062 mmHg
+			sensorData.humidity = comp_data.humidity/1024;
 		}
-		if (rslt == BME280_OK) {
-			temperature = comp_data.temperature/100;
-			pressure = comp_data.pressure/100;
-			humidity = comp_data.humidity/1024;
+            // Send data to the queue
+		if (osMessageQueuePut(bme280DataHandle, &sensorData, 0, osWaitForever) != osOK) {
+			// Handle error: Failed to send data to queue
+			printf("Failed to send data to queue.\r\n");
+			}
+			/*
 			printf(
-					"Sensor Data:\r\nTemperature: %.1f°C\r\nHumidity: %.1f%%\r\nPressure: %.2f hPa\r\n",
+					"Sensor Data:\r\nTemperature: %.1f°C\r\nHumidity: %.1f%%\r\nPressure: %.2f mmHg\r\n",
 					temperature, humidity, pressure);
 		} else if (rslt != BME280_OK) {
-			printf("Counld get result from BME280 Module\r\n");
+			printf("Failed to Retrieve BME280 Data. Error code: %d\r\n", rslt);
 		}
-		osDelay(1000);
+		*/
+		osDelay(500);
 	}
 
   /* USER CODE END Startbme280Task */
+}
+
+/* USER CODE BEGIN Header_StartlcdTask */
+/**
+* @brief Function implementing the lcdTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartlcdTask */
+void StartlcdTask(void *argument)
+{
+  /* USER CODE BEGIN StartlcdTask */
+	bme280Data_t receivedData;
+	char buffer[32];
+  /* Infinite loop */
+	for (;;) {
+        if (osMessageQueueGet(bme280DataHandle, &receivedData, NULL, osWaitForever) == osOK)
+        {
+            // Process the received data
+            printf("Received Sensor Data:\r\n");
+            printf("Temperature: %.1f°C\r\n", receivedData.temperature);
+            printf("Humidity: %.1f%%\r\n", receivedData.humidity);
+            printf("Pressure: %.2f mmHg\r\n", receivedData.pressure);
+        }
+        else
+        {
+            // Handle error: Failed to receive data from queue
+            printf("Failed to receive data from queue.\r\n");
+        }
+
+        // Clear the display
+		ssd1306_Fill(Black);
+
+		// Print the received data on the SSD1306 display
+		// Write data to local screen buffer
+		snprintf(buffer, sizeof(buffer), "Temp: %.1f C", receivedData.temperature);
+		ssd1306_SetCursor(0, 0);
+		ssd1306_WriteString(buffer, Font_11x18, White);
+
+		snprintf(buffer, sizeof(buffer), "Hum: %.1f %%", receivedData.humidity);
+		ssd1306_SetCursor(0, 18); // Move cursor to the next line
+		ssd1306_WriteString(buffer, Font_11x18, White);
+
+		snprintf(buffer, sizeof(buffer), "Press: %.2f mmHg", receivedData.pressure);
+		ssd1306_SetCursor(0, 36); // Move cursor to the next line
+		ssd1306_WriteString(buffer, Font_11x18, White);
+
+		// Copy all data from local screen buffer to the screen
+		ssd1306_UpdateScreen(&hi2c1);
+
+		osDelay(1);
+	}
+  /* USER CODE END StartlcdTask */
 }
 
 /**
