@@ -61,20 +61,25 @@ const osThreadAttr_t defaultTask_attributes = {
 osThreadId_t bme280TaskHandle;
 const osThreadAttr_t bme280Task_attributes = {
   .name = "bme280Task",
-  .stack_size = 256 * 4,
+  .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for lcdTask */
 osThreadId_t lcdTaskHandle;
 const osThreadAttr_t lcdTask_attributes = {
   .name = "lcdTask",
-  .stack_size = 256 * 4,
-  .priority = (osPriority_t) osPriorityBelowNormal,
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for bme280Data */
 osMessageQueueId_t bme280DataHandle;
 const osMessageQueueAttr_t bme280Data_attributes = {
   .name = "bme280Data"
+};
+/* Definitions for i2c1Mutex */
+osMutexId_t i2c1MutexHandle;
+const osMutexAttr_t i2c1Mutex_attributes = {
+  .name = "i2c1Mutex"
 };
 /* USER CODE BEGIN PV */
 
@@ -217,19 +222,16 @@ int main(void)
 	}
 
 	/*-------------------------------------SSD1306 Setup-----------------------------------------------------*/
-
-	//MX_I2C1_Init();
 	ssd1306_Init(&hi2c1);
-
-    ssd1306_Fill(Black);
-    ssd1306_UpdateScreen(&hi2c1);
-
 
 
   /* USER CODE END 2 */
 
   /* Init scheduler */
   osKernelInitialize();
+  /* Create the mutex(es) */
+  /* creation of i2c1Mutex */
+  i2c1MutexHandle = osMutexNew(&i2c1Mutex_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
 	/* add mutexes, ... */
@@ -245,7 +247,7 @@ int main(void)
 
   /* Create the queue(s) */
   /* creation of bme280Data */
-  bme280DataHandle = osMessageQueueNew (16, sizeof(uint16_t), &bme280Data_attributes);
+  bme280DataHandle = osMessageQueueNew (16, sizeof(bme280Data_t), &bme280Data_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
 	/* add queues, ... */
@@ -566,30 +568,22 @@ void Startbme280Task(void *argument)
 	/* Infinite loop */
 	for (;;) {
 
-		/* BME280 Data Collection */
-		rslt = bme280_get_sensor_data(BME280_ALL, &comp_data, &dev);
-		if (rslt == BME280_OK) {
-			printf("BME280 Data Retrieved successfully set.\r\n");
-			sensorData.temperature = comp_data.temperature/100;
-			sensorData.pressure = comp_data.pressure*(0.00750062/100); //1hPa = 0.00750062 mmHg
-			sensorData.humidity = comp_data.humidity/1024;
-		}
-            // Send data to the queue
-		if (osMessageQueuePut(bme280DataHandle, &sensorData, 0, osWaitForever) != osOK) {
-			// Handle error: Failed to send data to queue
-			printf("Failed to send data to queue.\r\n");
+		if (osMutexAcquire(i2c1MutexHandle, osWaitForever) == osOK) {
+			/* BME280 Data Collection */
+			rslt = bme280_get_sensor_data(BME280_ALL, &comp_data, &dev);
+			osMutexRelease(i2c1MutexHandle); // Release the I2C1 mutex
+			if (rslt == BME280_OK) {
+				sensorData.temperature = comp_data.temperature/100.0f; //100.0f is to make at least one operand float type
+				sensorData.pressure = comp_data.pressure * (0.00750062 / 100); //1hPa = 0.00750062 mmHg
+				sensorData.humidity = comp_data.humidity/1024.0f; //1024.0f is to make at least one operand float type
 			}
-			/*
-			printf(
-					"Sensor Data:\r\nTemperature: %.1f°C\r\nHumidity: %.1f%%\r\nPressure: %.2f mmHg\r\n",
-					temperature, humidity, pressure);
-		} else if (rslt != BME280_OK) {
-			printf("Failed to Retrieve BME280 Data. Error code: %d\r\n", rslt);
+			// Send data to the queue
+			if (osMessageQueuePut(bme280DataHandle, &sensorData, 0,
+					osWaitForever) != osOK) {
+			}
+			osDelay(1);
 		}
-		*/
-		osDelay(500);
 	}
-
   /* USER CODE END Startbme280Task */
 }
 
@@ -603,46 +597,52 @@ void Startbme280Task(void *argument)
 void StartlcdTask(void *argument)
 {
   /* USER CODE BEGIN StartlcdTask */
-	bme280Data_t receivedData;
-	char buffer[32];
-  /* Infinite loop */
-	for (;;) {
-        if (osMessageQueueGet(bme280DataHandle, &receivedData, NULL, osWaitForever) == osOK)
-        {
-            // Process the received data
-            printf("Received Sensor Data:\r\n");
-            printf("Temperature: %.1f°C\r\n", receivedData.temperature);
-            printf("Humidity: %.1f%%\r\n", receivedData.humidity);
-            printf("Pressure: %.2f mmHg\r\n", receivedData.pressure);
-        }
-        else
-        {
-            // Handle error: Failed to receive data from queue
-            printf("Failed to receive data from queue.\r\n");
-        }
+		bme280Data_t receivedData;
+		char buffer[32];
+		/* Infinite loop */
+		for (;;) {
+			if (osMessageQueueGet(bme280DataHandle, &receivedData, NULL,
+			osWaitForever) == osOK) {
+			} else {
+				// Handle error: Failed to receive data from queue
+			}
 
-        // Clear the display
-		ssd1306_Fill(Black);
+			// Clear the display
+			ssd1306_Fill(Black);
 
-		// Print the received data on the SSD1306 display
-		// Write data to local screen buffer
-		snprintf(buffer, sizeof(buffer), "Temp: %.1f C", receivedData.temperature);
-		ssd1306_SetCursor(0, 0);
-		ssd1306_WriteString(buffer, Font_11x18, White);
+			// Print the received data on the SSD1306 display
+			// Write data to local screen buffer
+			snprintf(buffer, sizeof(buffer), "Tem:%.2f C",
+					receivedData.temperature);
+			ssd1306_SetCursor(0, 0);
+			ssd1306_WriteString(buffer, Font_11x18, White);
 
-		snprintf(buffer, sizeof(buffer), "Hum: %.1f %%", receivedData.humidity);
-		ssd1306_SetCursor(0, 18); // Move cursor to the next line
-		ssd1306_WriteString(buffer, Font_11x18, White);
+			snprintf(buffer, sizeof(buffer), "Hum:%.2f %%",
+					receivedData.humidity);
+			ssd1306_SetCursor(0, 18); // Move cursor to the next line
+			ssd1306_WriteString(buffer, Font_11x18, White);
 
-		snprintf(buffer, sizeof(buffer), "Press: %.2f mmHg", receivedData.pressure);
-		ssd1306_SetCursor(0, 36); // Move cursor to the next line
-		ssd1306_WriteString(buffer, Font_11x18, White);
+			snprintf(buffer, sizeof(buffer), "Prs:%.2f mmHg",
+					receivedData.pressure);
+			ssd1306_SetCursor(0, 36); // Move cursor to the next line
+			ssd1306_WriteString(buffer, Font_11x18, White);
 
-		// Copy all data from local screen buffer to the screen
-		ssd1306_UpdateScreen(&hi2c1);
+			////////////////////------Mutex------------////////////////////////
+			if (osMutexAcquire(i2c1MutexHandle, osWaitForever) == osOK) {
+				// Update the SSD1306 display
+				ssd1306_UpdateScreen(&hi2c1);
+				// Release the mutex after accessing the I2C1 peripheral
+				osMutexRelease(i2c1MutexHandle);
+			} else {
+				// Handle error: Failed to acquire mutex
+			}
+			// Release the mutex after accessing the I2C1 peripheral
+			osMutexRelease(i2c1MutexHandle);
+			////////////////////------Mutex------------////////////////////////
 
-		osDelay(1);
-	}
+			osDelay(2);
+		}
+
   /* USER CODE END StartlcdTask */
 }
 
