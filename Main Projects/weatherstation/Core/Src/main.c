@@ -71,6 +71,13 @@ const osThreadAttr_t lcdTask_attributes = {
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for mqttTask */
+osThreadId_t mqttTaskHandle;
+const osThreadAttr_t mqttTask_attributes = {
+  .name = "mqttTask",
+  .stack_size = 256 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* Definitions for bme280Data */
 osMessageQueueId_t bme280DataHandle;
 const osMessageQueueAttr_t bme280Data_attributes = {
@@ -93,6 +100,7 @@ static void MX_USART2_UART_Init(void);
 void StartDefaultTask(void *argument);
 void Startbme280Task(void *argument);
 void StartlcdTask(void *argument);
+void StartmqttTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -100,6 +108,10 @@ void StartlcdTask(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+void sendATCommand(const char *command);
+void publishMQTTMessage(const char *topic, const char *payload);
+
 
 //float temperature, humidity, pressure;
 
@@ -147,6 +159,88 @@ int _write(int file, char *data, int len) {
 			HAL_MAX_DELAY);
 	return (status == HAL_OK ? len : 0);
 }
+
+
+
+void StartMQTTPublishTask(void *argument)
+{
+  /* USER CODE BEGIN StartMQTTPublishTask */
+  bme280Data_t sensorData;
+  char mqttPayload[128];
+  const char *mqttTopic = "sensor/bme280";
+
+  /* Infinite loop */
+  for (;;) {
+    // Get data from the queue
+    if (osMessageQueueGet(bme280DataHandle, &sensorData, NULL, osWaitForever) == osOK) {
+      // Format the data as a JSON string
+      snprintf(mqttPayload, sizeof(mqttPayload), "{\"temperature\": %.2f, \"pressure\": %.2f, \"humidity\": %.2f}",
+               sensorData.temperature, sensorData.pressure, sensorData.humidity);
+
+      // Publish the data to the MQTT broker
+      publishMQTTMessage(mqttTopic, mqttPayload);
+
+      osDelay(1000); // Delay for a while before the next publish
+    }
+  }
+  /* USER CODE END StartMQTTPublishTask */
+}
+
+void publishMQTTMessage(const char *topic, const char *payload)
+{
+    char mqttCommand[256];
+    int topicLength = strlen(topic);
+    int payloadLength = strlen(payload);
+    int remainingLength = 2 + topicLength + payloadLength; // 2 bytes for topic length + topic + payload
+
+    // Establish TCP connection to the MQTT broker
+    snprintf(mqttCommand, sizeof(mqttCommand), "AT+CIPSTART=\"TCP\",\"broker.hivemq.com\",1883");
+    sendATCommand(mqttCommand);
+
+    // Send MQTT connect packet
+    snprintf(mqttCommand, sizeof(mqttCommand), "AT+CIPSEND=16");
+    sendATCommand(mqttCommand);
+    // Construct and send the MQTT CONNECT packet (you'll need to customize this)
+    sendATCommand("\x10\x0E\x00\x04MQTT\x04\x02\x00\x3C\x00\x00");
+
+    // Send MQTT publish packet
+    snprintf(mqttCommand, sizeof(mqttCommand), "AT+CIPSEND=%d", remainingLength + 2); // +2 for the fixed header
+    sendATCommand(mqttCommand);
+
+    // Construct the MQTT PUBLISH packet
+    char mqttPublishPacket[256];
+    int packetIndex = 0;
+
+    // Fixed header
+    mqttPublishPacket[packetIndex++] = 0x30; // PUBLISH packet type
+    mqttPublishPacket[packetIndex++] = remainingLength;
+
+    // Variable header
+    mqttPublishPacket[packetIndex++] = (topicLength >> 8) & 0xFF; // Topic length MSB
+    mqttPublishPacket[packetIndex++] = topicLength & 0xFF;        // Topic length LSB
+    memcpy(&mqttPublishPacket[packetIndex], topic, topicLength);
+    packetIndex += topicLength;
+
+    // Payload
+    memcpy(&mqttPublishPacket[packetIndex], payload, payloadLength);
+    packetIndex += payloadLength;
+
+    // Send the constructed MQTT PUBLISH packet
+    HAL_UART_Transmit(&huart2, (uint8_t*)mqttPublishPacket, packetIndex, HAL_MAX_DELAY);
+
+    // Close the TCP connection
+    sendATCommand("AT+CIPCLOSE");
+}
+
+void sendATCommand(const char *command)
+{
+    // Implement the function to send AT command via UART to ESP32-C3
+    HAL_UART_Transmit(&huart2, (uint8_t*)command, strlen(command), HAL_MAX_DELAY);
+    HAL_UART_Transmit(&huart2, (uint8_t*)"\r\n", 2, HAL_MAX_DELAY);
+    HAL_Delay(100); // Delay to allow response from ESP32-C3
+}
+
+
 
 /* USER CODE END 0 */
 
@@ -247,7 +341,7 @@ int main(void)
 
   /* Create the queue(s) */
   /* creation of bme280Data */
-  bme280DataHandle = osMessageQueueNew (16, sizeof(bme280Data_t), &bme280Data_attributes);
+  bme280DataHandle = osMessageQueueNew (16, sizeof(uint16_t), &bme280Data_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
 	/* add queues, ... */
@@ -262,6 +356,9 @@ int main(void)
 
   /* creation of lcdTask */
   lcdTaskHandle = osThreadNew(StartlcdTask, NULL, &lcdTask_attributes);
+
+  /* creation of mqttTask */
+  mqttTaskHandle = osThreadNew(StartmqttTask, NULL, &mqttTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
 	/* add threads, ... */
@@ -534,6 +631,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -644,6 +742,38 @@ void StartlcdTask(void *argument)
 		}
 
   /* USER CODE END StartlcdTask */
+}
+
+/* USER CODE BEGIN Header_StartmqttTask */
+/**
+* @brief Function implementing the mqttTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartmqttTask */
+void StartmqttTask(void *argument)
+{
+  /* USER CODE BEGIN StartmqttTask */
+	  bme280Data_t sensorData;
+	  char mqttPayload[128];
+	  const char *mqttTopic = "sensor/bme280";
+
+	  /* Infinite loop */
+	  for (;;) {
+	    // Get data from the queue
+	    if (osMessageQueueGet(bme280DataHandle, &sensorData, NULL, osWaitForever) == osOK) {
+	      // Format the data as a JSON string
+	      snprintf(mqttPayload, sizeof(mqttPayload), "{\"temperature\": %.2f, \"pressure\": %.2f, \"humidity\": %.2f}",
+	               sensorData.temperature, sensorData.pressure, sensorData.humidity);
+
+	      // Publish the data to the MQTT broker
+	      publishMQTTMessage(mqttTopic, mqttPayload);
+
+	      osDelay(1000); // Delay for a while before the next publish
+	    }
+	    osDelay(1);
+	  }
+  /* USER CODE END StartmqttTask */
 }
 
 /**
