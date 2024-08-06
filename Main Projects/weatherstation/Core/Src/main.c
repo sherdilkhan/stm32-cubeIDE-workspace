@@ -385,7 +385,7 @@ int main(void) {
 				(uint8_t*) "Failed to Configure MQTT Credentials\r\n",
 				strlen("Failed to Configure MQTT Credentials\r\n"),
 				HAL_MAX_DELAY);
-		return;
+		//return;
 	}
 
 	// Connect to MQTT Broker
@@ -408,7 +408,7 @@ int main(void) {
 		HAL_UART_Transmit(&huart3,
 				(uint8_t*) "Failed to Subscribe to Topic\r\n",
 				strlen("Failed to Subscribe to Topic\r\n"), HAL_MAX_DELAY);
-		return;
+		//return;
 	}
 
 	// Publish to a Topic
@@ -418,7 +418,7 @@ int main(void) {
 	if (!waitForResponse("OK\r\n", 1000)) {
 		HAL_UART_Transmit(&huart3, (uint8_t*) "Failed to Publish to Topic\r\n",
 				strlen("Failed to Publish to Topic\r\n"), HAL_MAX_DELAY);
-		return;
+		//return;
 	}
 
 	/* USER CODE END 2 */
