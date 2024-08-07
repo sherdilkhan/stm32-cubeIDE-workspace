@@ -172,51 +172,25 @@ void StartMQTTPublishTask(void *argument) {
 
 			// Publish the data to the MQTT broker
 			publishMQTTMessage(mqttTopic, mqttPayload);
-
-			osDelay(1000); // Delay for a while before the next publish
 		}
+		osDelay(2000); // Delay for a while before the next publish
 	}
 	/* USER CODE END StartMQTTPublishTask */
 }
 
 void publishMQTTMessage(const char *topic, const char *payload) {
-	char mqttCommand[256];
-	int topicLength = strlen(topic);
-	int payloadLength = strlen(payload);
-	int remainingLength = 2 + topicLength + payloadLength; // 2 bytes for topic length + topic + payload
 
-	// Send MQTT publish packet
-	snprintf(mqttCommand, sizeof(mqttCommand), "AT+CIPSEND=%d\r\n",
-			remainingLength + 2); // +2 for the fixed header
-	sendATCommand(mqttCommand);
-	osDelay(1000); // Short delay to ensure the ESP32 is ready to receive the packet
+	char atCommand[256];
 
-	// Construct the MQTT PUBLISH packet
-	char mqttPublishPacket[256];
-	int packetIndex = 0;
-
-	// Fixed header
-	mqttPublishPacket[packetIndex++] = 0x30; // PUBLISH packet type
-	mqttPublishPacket[packetIndex++] = remainingLength;
-
-	// Variable header
-	mqttPublishPacket[packetIndex++] = (topicLength >> 8) & 0xFF; // Topic length MSB
-	mqttPublishPacket[packetIndex++] = topicLength & 0xFF;   // Topic length LSB
-	memcpy(&mqttPublishPacket[packetIndex], topic, topicLength);
-	packetIndex += topicLength;
-
-	// Payload
-	memcpy(&mqttPublishPacket[packetIndex], payload, payloadLength);
-	packetIndex += payloadLength;
-
-	// Send the constructed MQTT PUBLISH packet
-	HAL_UART_Transmit(&huart2, (uint8_t*) mqttPublishPacket, packetIndex,
-	HAL_MAX_DELAY);
-	osDelay(1000); // Wait for the publish packet to be processed
-
-	// Close the TCP connection
-	sendATCommand("AT+CIPCLOSE\r\n");
-	osDelay(1000); // Wait for the connection to close
+	    // Publish to a Topic
+	    HAL_UART_Transmit(&huart3, (uint8_t*)"Publishing to Topic\r\n", strlen("Publishing to Topic\r\n"), HAL_MAX_DELAY);
+	    snprintf(atCommand, sizeof(atCommand), "AT+MQTTPUB=0,\"%s\",\"%s\",1,0\r\n", topic, payload);
+	    sendATCommand(atCommand);
+	    if (!waitForResponse("OK\r\n", 1000)) {
+	        HAL_UART_Transmit(&huart3, (uint8_t*)"Failed to Publish to Topic\r\n", strlen("Failed to Publish to Topic\r\n"), HAL_MAX_DELAY);
+	    } else {
+	        HAL_UART_Transmit(&huart3, (uint8_t*)"Successfully Published to Topic\r\n", strlen("Successfully Published to Topic\r\n"), HAL_MAX_DELAY);
+	    }
 }
 
 void sendATCommand(const char *command) {
