@@ -40,11 +40,12 @@
 /* USER CODE BEGIN PD */
 #define WIFI_SSID "Sherdil"
 #define WIFI_PASS "03336830763BB"
-#define MQTT_CLIENT_ID "0"
-#define MQTT_USERNAME "sdknhive02"
-#define MQTT_PASSWORD "viSu3Hglm2"
-#define MQTT_BROKER_URL "291cdd7712d74aa1bbc793e426f8ddc2.s1.eu.hivemq.cloud"
+#define MQTT_CLIENT_ID "OgkyKQYPMSUUIA0lICEeFQI"
+#define MQTT_USERNAME "OgkyKQYPMSUUIA0lICEeFQI"
+#define MQTT_PASSWORD "QzwKF9IrWL12EE1YAIRR3fui"
+#define MQTT_BROKER_URL "mqtt3.thingspeak.com"
 #define MQTT_PORT 8883
+#define THINGSPEAK_API_KEY "Y32YKHUW1JPAYZ3F"
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
